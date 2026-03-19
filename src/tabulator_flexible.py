@@ -1,21 +1,16 @@
 # -*- coding: utf-8 -*-
 """
-ASUC Elections Tabulator - Main Orchestrator
+ASUC Elections Tabulator - Flexible Main Orchestrator
 
-Processes ASUC election CSV files and calculates winners using:
-- Instant-Runoff Voting (IRV) for executive races
-- Single Transferable Vote (STV) for Senate
-- Simple majority for propositions
-
-Per ASUCBL 4105 voting rules.
+Works with any year's CSV format by auto-detecting races and propositions.
 """
 
 import sys
 import json
 from datetime import datetime
 
-# Import our modules
-import csv_parser
+# Import modules
+import csv_parser_flexible as csv_parser
 import propositions
 import instant_runoff
 import stv
@@ -23,28 +18,29 @@ import stv
 
 def main(csv_filepath: str):
     """
-    Main orchestrator - run complete election tabulation.
-
-    Args:
-        csv_filepath: Path to election CSV file
-
-    Process:
-        1. Load and parse CSV
-        2. Run IRV for each executive race
-        3. Run STV for Senate
-        4. Run majority vote for propositions
-        5. Generate results.json
-        6. Print summary
+    Main orchestrator with auto-detection for any year's format.
     """
     print("\n" + "="*70)
-    print(" ASUC ELECTIONS TABULATOR")
+    print(" ASUC ELECTIONS TABULATOR (Flexible)")
     print("="*70 + "\n")
 
     # ========================================================================
-    # STEP 1: Load CSV
+    # STEP 1: Load CSV and Auto-Detect Races
     # ========================================================================
-    print("[STEP 1] Loading CSV...")
+    print("[STEP 1] Loading CSV and auto-detecting races...")
     df = csv_parser.load_csv(csv_filepath)
+
+    # Auto-detect races
+    race_configs = csv_parser.auto_detect_races(df)
+    print(f"\n[OK] Auto-detected {len(race_configs)} races")
+    for race_name in race_configs.keys():
+        print(f"  - {race_name}")
+
+    # Auto-detect propositions
+    prop_configs = csv_parser.auto_detect_propositions(df)
+    print(f"\n[OK] Auto-detected {len(prop_configs)} propositions")
+    for prop_id in prop_configs.keys():
+        print(f"  - {prop_id}")
 
     # ========================================================================
     # STEP 2: Run Executive Races (IRV)
@@ -54,27 +50,15 @@ def main(csv_filepath: str):
     print("="*70)
 
     executive_results = {}
+    executive_races = [name for name, config in race_configs.items() if config['type'] == 'irv']
 
-    executive_races = [
-        "President",
-        "Executive Vice President",
-        "External Affairs Vice President",
-        "Academic Affairs Vice President",
-        "Student Advocate"
-    ]
-
-    for race_id in executive_races:
-        race_config = csv_parser.RACE_CONFIGS.get(race_id)
-        if not race_config:
-            print(f"\n[WARNING] Race config not found for: {race_id}")
-            continue
-
-        # Extract ballots
+    for race_name in executive_races:
+        race_config = race_configs[race_name]
         ballots = csv_parser.extract_race_ballots(df, race_config)
 
-        # Run IRV
-        result = instant_runoff.run_instant_runoff(ballots, race_config['name'])
-        executive_results[race_id] = result
+        if ballots:
+            result = instant_runoff.run_instant_runoff(ballots, race_name)
+            executive_results[race_name] = result
 
     # ========================================================================
     # STEP 3: Run Senate Race (STV)
@@ -83,9 +67,14 @@ def main(csv_filepath: str):
     print("[STEP 3] SENATE RACE (Single Transferable Vote)")
     print("="*70)
 
-    senate_config = csv_parser.RACE_CONFIGS["Senate"]
-    senate_ballots = csv_parser.extract_race_ballots(df, senate_config)
-    senate_result = stv.run_stv(senate_ballots, seats=20, race_name="Senate")
+    senate_result = None
+    if "Senate" in race_configs:
+        senate_config = race_configs["Senate"]
+        senate_ballots = csv_parser.extract_race_ballots(df, senate_config)
+        if senate_ballots:
+            senate_result = stv.run_stv(senate_ballots, seats=20, race_name="Senate")
+    else:
+        print("\n[WARNING] No Senate race detected in this election")
 
     # ========================================================================
     # STEP 4: Run Propositions (Simple Majority)
@@ -96,7 +85,7 @@ def main(csv_filepath: str):
 
     proposition_results = {}
 
-    for prop_id, prop_config in csv_parser.PROPOSITION_CONFIGS.items():
+    for prop_id, prop_config in prop_configs.items():
         votes = csv_parser.get_proposition_votes(df, prop_config)
         result = propositions.run_proposition(votes, prop_config['name'])
         proposition_results[prop_id] = result
@@ -110,19 +99,13 @@ def main(csv_filepath: str):
     print("="*70 + "\n")
 
     output_data = {
-        "election_year": "2018",
         "generated_at": datetime.now().isoformat(),
         "total_ballots": len(df),
-        "executive_races": {},
-        "senate": senate_result,
+        "executive_races": executive_results,
+        "senate": senate_result if senate_result else {},
         "propositions": proposition_results
     }
 
-    # Format executive results for JSON
-    for race_id, result in executive_results.items():
-        output_data["executive_races"][race_id] = result
-
-    # Write JSON
     output_path = "output/results.json"
     with open(output_path, 'w', encoding='utf-8') as f:
         json.dump(output_data, f, indent=2, ensure_ascii=False)
@@ -139,33 +122,35 @@ def main(csv_filepath: str):
     print(f"Total Ballots Processed: {len(df)}\n")
 
     # Executive Winners
-    print("--- EXECUTIVE OFFICERS ---")
-    for race_id in executive_races:
-        result = executive_results.get(race_id)
-        if result and result.get('winner'):
-            winner = result['winner']
-            name = winner['name']
-            party = winner.get('party', 'N/A')
-            rounds = len(result['rounds'])
-            print(f"{race_id}:")
-            print(f"  Winner: {name} ({party})")
-            print(f"  Rounds: {rounds}\n")
+    if executive_results:
+        print("--- EXECUTIVE OFFICERS ---")
+        for race_name, result in executive_results.items():
+            if result and result.get('winner'):
+                winner = result['winner']
+                name = winner['name']
+                party = winner.get('party', 'N/A')
+                rounds = len(result['rounds'])
+                print(f"{race_name}:")
+                print(f"  Winner: {name} ({party})")
+                print(f"  Rounds: {rounds}\n")
 
     # Senate Winners
-    print("--- SENATE (20 Seats) ---")
-    print(f"Rounds: {len(senate_result['rounds'])}")
-    print(f"Elected Senators:")
-    for i, senator in enumerate(senate_result['elected'], 1):
-        name = senator['name']
-        party = senator.get('party', 'N/A')
-        print(f"  {i:2d}. {name} ({party})")
+    if senate_result and senate_result.get('elected'):
+        print("--- SENATE (20 Seats) ---")
+        print(f"Rounds: {len(senate_result['rounds'])}")
+        print(f"Elected Senators:")
+        for i, senator in enumerate(senate_result['elected'], 1):
+            name = senator['name']
+            party = senator.get('party', 'N/A')
+            print(f"  {i:2d}. {name} ({party})")
 
     # Propositions
-    print("\n--- PROPOSITIONS ---")
-    for prop_id, result in proposition_results.items():
-        outcome = result['result']
-        yes_pct = result['yes_percentage']
-        print(f"{prop_id}: {outcome} ({yes_pct:.1f}% yes)")
+    if proposition_results:
+        print("\n--- PROPOSITIONS ---")
+        for prop_id, result in proposition_results.items():
+            outcome = result['result']
+            yes_pct = result['yes_percentage']
+            print(f"{prop_id}: {outcome} ({yes_pct:.1f}% yes)")
 
     print("\n" + "="*70)
     print(" TABULATION COMPLETE")

@@ -1,0 +1,1956 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ASUC Elections Tabulator</title>
+  <style>
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --berkeley-blue: #003262;
+      --berkeley-blue-dark: #00213f;
+      --california-gold: #FDB515;
+      --gold-light: #fec84a;
+      --gold-pale: #fff7e0;
+      --bg: #f5f6fa;
+      --card-bg: #ffffff;
+      --text-primary: #1a1a2e;
+      --text-secondary: #4a4a6a;
+      --text-muted: #8888a0;
+      --border: #e2e4ee;
+      --shadow: 0 2px 12px rgba(0, 50, 98, 0.06);
+      --shadow-hover: 0 6px 24px rgba(0, 50, 98, 0.10);
+      --radius: 12px;
+      --radius-sm: 8px;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text-primary);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ===== HEADER ===== */
+    .header {
+      background: linear-gradient(135deg, var(--berkeley-blue) 0%, var(--berkeley-blue-dark) 100%);
+      color: white;
+      padding: 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 4px 20px rgba(0, 50, 98, 0.25);
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 24px 32px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo-placeholder {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.12);
+      border: 2px dashed rgba(253, 181, 21, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 10px;
+      color: rgba(253, 181, 21, 0.6);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .header-text h1 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+      line-height: 1.2;
+    }
+
+    .header-text h1 span {
+      color: var(--california-gold);
+    }
+
+    .header-text .subtitle {
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.65);
+      margin-top: 2px;
+    }
+
+    .header-meta {
+      margin-left: auto;
+      text-align: right;
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.55);
+    }
+
+    .header-meta .ballot-count {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--california-gold);
+      line-height: 1.2;
+    }
+
+    /* ===== NAV TABS ===== */
+    .nav {
+      background: var(--berkeley-blue-dark);
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 32px;
+      display: flex;
+      gap: 0;
+    }
+
+    .nav-tab {
+      padding: 12px 24px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.55);
+      cursor: pointer;
+      border-bottom: 3px solid transparent;
+      transition: all 0.2s ease;
+      user-select: none;
+    }
+
+    .nav-tab:hover {
+      color: rgba(255, 255, 255, 0.85);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .nav-tab.active {
+      color: var(--california-gold);
+      border-bottom-color: var(--california-gold);
+    }
+
+    /* ===== MAIN CONTENT ===== */
+    .main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 32px;
+    }
+
+    .section {
+      display: none;
+    }
+
+    .section.active {
+      display: block;
+    }
+
+    .section-title {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--berkeley-blue);
+      margin-bottom: 6px;
+    }
+
+    .section-subtitle {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 28px;
+    }
+
+    /* ===== CARDS ===== */
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      margin-bottom: 20px;
+      overflow: hidden;
+      transition: box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      box-shadow: var(--shadow-hover);
+    }
+
+    .card-header {
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .card-header:hover {
+      background: rgba(0, 50, 98, 0.015);
+    }
+
+    .card-race-name {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--berkeley-blue);
+    }
+
+    .card-winner-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: linear-gradient(135deg, var(--california-gold), #f0a800);
+      color: var(--berkeley-blue);
+      padding: 5px 14px;
+      border-radius: 20px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+    }
+
+    .card-winner-badge .check {
+      font-size: 0.85rem;
+    }
+
+    .card-toggle {
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      transition: transform 0.2s ease;
+    }
+
+    .card.expanded .card-toggle {
+      transform: rotate(180deg);
+    }
+
+    .card-body {
+      display: none;
+      padding: 0 24px 24px;
+      border-top: 1px solid var(--border);
+    }
+
+    .card.expanded .card-body {
+      display: block;
+    }
+
+    /* ===== WINNER SPOTLIGHT ===== */
+    .winner-spotlight {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 16px 20px;
+      background: var(--gold-pale);
+      border-radius: var(--radius-sm);
+      margin-top: 16px;
+      margin-bottom: 20px;
+    }
+
+    .winner-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--california-gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--berkeley-blue);
+      flex-shrink: 0;
+    }
+
+    .winner-info h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--berkeley-blue);
+    }
+
+    .winner-info .party-tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 4px;
+      background: var(--berkeley-blue);
+      color: white;
+      margin-top: 3px;
+    }
+
+    .winner-info .description {
+      font-size: 0.78rem;
+      color: var(--text-secondary);
+      margin-top: 2px;
+    }
+
+    /* ===== ROUND TABLE ===== */
+    .rounds-header {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+
+    .round-block {
+      margin-bottom: 14px;
+    }
+
+    .round-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--berkeley-blue);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .round-label .round-meta {
+      font-weight: 400;
+      color: var(--text-muted);
+      font-size: 0.72rem;
+    }
+
+    .round-badge {
+      font-size: 0.65rem;
+      padding: 1px 7px;
+      border-radius: 3px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+
+    .round-badge.elected {
+      background: #d4edda;
+      color: #155724;
+    }
+
+    .round-badge.eliminated {
+      background: #f8d7da;
+      color: #721c24;
+    }
+
+    .bar-row {
+      display: flex;
+      align-items: center;
+      margin-bottom: 4px;
+      gap: 8px;
+    }
+
+    .bar-name {
+      width: 180px;
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      text-align: right;
+      flex-shrink: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .bar-track {
+      flex: 1;
+      height: 22px;
+      background: #eef0f6;
+      border-radius: 4px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      height: 100%;
+      border-radius: 4px;
+      background: var(--berkeley-blue);
+      transition: width 0.4s ease;
+      min-width: 2px;
+    }
+
+    .bar-fill.winner {
+      background: linear-gradient(90deg, var(--california-gold), #f0a800);
+    }
+
+    .bar-fill.eliminated {
+      background: #c4c8d8;
+    }
+
+    .bar-value {
+      width: 90px;
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      flex-shrink: 0;
+    }
+
+    .quota-line {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: #e74c3c;
+      z-index: 2;
+      opacity: 0.6;
+    }
+
+    .quota-line::after {
+      content: 'Q';
+      position: absolute;
+      top: -14px;
+      left: -4px;
+      font-size: 0.55rem;
+      font-weight: 700;
+      color: #e74c3c;
+    }
+
+    /* ===== SENATE GRID ===== */
+    .senate-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .senator-card {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 16px;
+      background: var(--card-bg);
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      transition: box-shadow 0.2s ease;
+    }
+
+    .senator-card:hover {
+      box-shadow: var(--shadow-hover);
+    }
+
+    .senator-rank {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: var(--berkeley-blue);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .senator-rank.top3 {
+      background: var(--california-gold);
+      color: var(--berkeley-blue);
+    }
+
+    .senator-info h4 {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      line-height: 1.2;
+    }
+
+    .senator-info .senator-party {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+
+    /* ===== PROPOSITIONS ===== */
+    .prop-card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      padding: 24px;
+      margin-bottom: 16px;
+    }
+
+    .prop-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+
+    .prop-name {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--berkeley-blue);
+    }
+
+    .prop-result {
+      padding: 5px 16px;
+      border-radius: 20px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+    }
+
+    .prop-result.passed {
+      background: #d4edda;
+      color: #155724;
+    }
+
+    .prop-result.failed {
+      background: #f8d7da;
+      color: #721c24;
+    }
+
+    .prop-bars {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .prop-bar-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .prop-bar-label {
+      width: 60px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+    }
+
+    .prop-bar-track {
+      flex: 1;
+      height: 28px;
+      background: #eef0f6;
+      border-radius: 6px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .prop-bar-fill {
+      height: 100%;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      padding-left: 10px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: white;
+      transition: width 0.5s ease;
+    }
+
+    .prop-bar-fill.yes { background: #27ae60; }
+    .prop-bar-fill.no { background: #e74c3c; }
+    .prop-bar-fill.abstain { background: #95a5a6; }
+
+    .prop-bar-count {
+      width: 80px;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-align: right;
+    }
+
+    .prop-threshold {
+      margin-top: 10px;
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+    /* ===== OVERVIEW STATS ===== */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .stat-card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      padding: 20px;
+      text-align: center;
+    }
+
+    .stat-value {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--berkeley-blue);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      text-align: center;
+      padding: 32px;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border);
+      margin-top: 48px;
+    }
+
+    .footer a {
+      color: var(--berkeley-blue);
+      text-decoration: none;
+    }
+
+    /* ===== LOADING ===== */
+    .loading {
+      text-align: center;
+      padding: 80px 20px;
+      color: var(--text-muted);
+    }
+
+    .loading .spinner {
+      width: 40px;
+      height: 40px;
+      border: 4px solid var(--border);
+      border-top-color: var(--california-gold);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin: 0 auto 16px;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* ===== PRESENT LIVE BUTTON ===== */
+    .present-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 22px;
+      background: linear-gradient(135deg, var(--california-gold), #f0a800);
+      color: var(--berkeley-blue);
+      border: none;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      letter-spacing: 0.2px;
+      margin-left: 20px;
+      flex-shrink: 0;
+    }
+
+    .present-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 16px rgba(253, 181, 21, 0.4);
+    }
+
+    .present-btn .play-icon {
+      font-size: 0.7rem;
+    }
+
+    /* ===== LIVE OVERLAY ===== */
+    .live-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: #0a0e1a;
+      overflow-y: auto;
+    }
+
+    .live-overlay.active {
+      display: block;
+    }
+
+    /* Top bar */
+    .live-topbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(10, 14, 26, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(253, 181, 21, 0.15);
+      padding: 14px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .live-topbar-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .live-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #e74c3c;
+      color: white;
+      padding: 4px 12px;
+      border-radius: 4px;
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      animation: livePulse 2s ease-in-out infinite;
+    }
+
+    .live-badge .dot {
+      width: 6px;
+      height: 6px;
+      background: white;
+      border-radius: 50%;
+    }
+
+    @keyframes livePulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
+    }
+
+    .live-title {
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .live-controls {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .live-ctrl-btn {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: white;
+      padding: 7px 16px;
+      border-radius: 6px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .live-ctrl-btn:hover {
+      background: rgba(255, 255, 255, 0.14);
+    }
+
+    .live-ctrl-btn.active {
+      background: var(--california-gold);
+      color: var(--berkeley-blue);
+      border-color: var(--california-gold);
+    }
+
+    .live-ctrl-btn.exit {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(255, 80, 80, 0.3);
+      color: #ff6b6b;
+    }
+
+    .live-ctrl-btn.exit:hover {
+      background: rgba(255, 80, 80, 0.15);
+    }
+
+    .speed-selector {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .speed-selector label {
+      color: rgba(255, 255, 255, 0.4);
+      font-size: 0.72rem;
+      margin-right: 4px;
+    }
+
+    .speed-btn {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: rgba(255, 255, 255, 0.5);
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .speed-btn:hover { background: rgba(255, 255, 255, 0.1); }
+    .speed-btn.active {
+      background: var(--berkeley-blue);
+      border-color: var(--california-gold);
+      color: var(--california-gold);
+    }
+
+    /* Live stage area */
+    .live-stage {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 48px 32px;
+      min-height: calc(100vh - 60px);
+    }
+
+    /* Race header in live mode */
+    .live-race-header {
+      text-align: center;
+      margin-bottom: 48px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease;
+    }
+
+    .live-race-header.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .live-race-type {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--california-gold);
+      margin-bottom: 8px;
+    }
+
+    .live-race-name {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: white;
+      letter-spacing: -0.5px;
+    }
+
+    .live-race-info {
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.35);
+      margin-top: 8px;
+    }
+
+    /* Live round */
+    .live-round {
+      margin-bottom: 40px;
+      opacity: 0;
+      transform: translateY(24px);
+      transition: all 0.5s ease;
+    }
+
+    .live-round.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .live-round-label {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .live-round-num {
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: var(--california-gold);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .live-round-info {
+      font-size: 0.75rem;
+      color: rgba(255, 255, 255, 0.3);
+    }
+
+    .live-round-event {
+      font-size: 0.7rem;
+      padding: 3px 10px;
+      border-radius: 4px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-left: auto;
+    }
+
+    .live-round-event.winner-event {
+      background: rgba(253, 181, 21, 0.15);
+      color: var(--california-gold);
+      border: 1px solid rgba(253, 181, 21, 0.3);
+    }
+
+    .live-round-event.elim-event {
+      background: rgba(231, 76, 60, 0.12);
+      color: #ff6b6b;
+      border: 1px solid rgba(231, 76, 60, 0.25);
+    }
+
+    /* Live bar row */
+    .live-bar-row {
+      display: flex;
+      align-items: center;
+      margin-bottom: 6px;
+      gap: 12px;
+      opacity: 0;
+      transform: translateX(-10px);
+      transition: all 0.3s ease;
+    }
+
+    .live-bar-row.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .live-bar-name {
+      width: 200px;
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.75);
+      text-align: right;
+      flex-shrink: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-weight: 500;
+    }
+
+    .live-bar-name.is-winner {
+      color: var(--california-gold);
+      font-weight: 700;
+    }
+
+    .live-bar-name.is-eliminated {
+      color: rgba(255, 255, 255, 0.25);
+      text-decoration: line-through;
+    }
+
+    .live-bar-track {
+      flex: 1;
+      height: 32px;
+      background: rgba(255, 255, 255, 0.04);
+      border-radius: 6px;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    .live-bar-fill {
+      height: 100%;
+      border-radius: 5px;
+      width: 0%;
+      transition: width 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      background: linear-gradient(90deg, #1a5276, #2980b9);
+    }
+
+    .live-bar-fill.is-winner {
+      background: linear-gradient(90deg, #c9920a, var(--california-gold), #ffe066);
+    }
+
+    .live-bar-fill.is-eliminated {
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .live-bar-value {
+      width: 130px;
+      font-size: 0.82rem;
+      color: rgba(255, 255, 255, 0.5);
+      flex-shrink: 0;
+      font-variant-numeric: tabular-nums;
+      font-weight: 600;
+    }
+
+    .live-bar-value .count-num {
+      color: rgba(255, 255, 255, 0.85);
+      font-weight: 700;
+    }
+
+    .live-quota-line {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: #e74c3c;
+      z-index: 2;
+      opacity: 0.8;
+      box-shadow: 0 0 8px rgba(231, 76, 60, 0.4);
+    }
+
+    .live-quota-label {
+      position: absolute;
+      top: -18px;
+      transform: translateX(-50%);
+      font-size: 0.6rem;
+      font-weight: 700;
+      color: #e74c3c;
+      letter-spacing: 0.5px;
+    }
+
+    /* Winner announcement */
+    .live-winner-announce {
+      text-align: center;
+      padding: 40px 20px;
+      margin: 20px 0;
+      opacity: 0;
+      transform: scale(0.9);
+      transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      border-radius: var(--radius);
+      background: radial-gradient(ellipse at center, rgba(253, 181, 21, 0.08) 0%, transparent 70%);
+    }
+
+    .live-winner-announce.visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .live-winner-label {
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: var(--california-gold);
+      margin-bottom: 12px;
+    }
+
+    .live-winner-name {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: white;
+      letter-spacing: -0.5px;
+      text-shadow: 0 0 40px rgba(253, 181, 21, 0.3);
+    }
+
+    .live-winner-party {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 5px 18px;
+      background: var(--berkeley-blue);
+      border: 1px solid rgba(253, 181, 21, 0.3);
+      border-radius: 20px;
+      color: var(--california-gold);
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    .live-winner-votes {
+      margin-top: 10px;
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.35);
+    }
+
+    /* Confetti burst lines */
+    .live-winner-announce.visible::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, rgba(253, 181, 21, 0.12) 0%, transparent 50%);
+      animation: winnerGlow 2s ease-in-out;
+      pointer-events: none;
+    }
+
+    @keyframes winnerGlow {
+      0% { opacity: 0; transform: scale(0.5); }
+      50% { opacity: 1; }
+      100% { opacity: 0; transform: scale(2); }
+    }
+
+    /* Senate live grid */
+    .live-senate-seat {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 16px;
+      margin: 4px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 8px;
+      opacity: 0;
+      transform: scale(0.8);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .live-senate-seat.visible {
+      opacity: 1;
+      transform: scale(1);
+      background: rgba(253, 181, 21, 0.06);
+      border-color: rgba(253, 181, 21, 0.2);
+    }
+
+    .live-senate-seat .seat-num {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: var(--california-gold);
+      color: var(--berkeley-blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      font-weight: 800;
+    }
+
+    .live-senate-seat .seat-name {
+      font-size: 0.82rem;
+      color: white;
+      font-weight: 600;
+    }
+
+    .live-senate-seat .seat-party {
+      font-size: 0.68rem;
+      color: rgba(255, 255, 255, 0.35);
+    }
+
+    /* Proposition live */
+    .live-prop-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: var(--radius);
+      padding: 32px;
+      margin-bottom: 24px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.5s ease;
+    }
+
+    .live-prop-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .live-prop-name {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 20px;
+    }
+
+    .live-prop-bar-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 10px;
+    }
+
+    .live-prop-label {
+      width: 70px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .live-prop-track {
+      flex: 1;
+      height: 36px;
+      background: rgba(255, 255, 255, 0.04);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .live-prop-fill {
+      height: 100%;
+      border-radius: 8px;
+      width: 0%;
+      transition: width 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      display: flex;
+      align-items: center;
+      padding-left: 12px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: white;
+    }
+
+    .live-prop-fill.yes { background: linear-gradient(90deg, #1e8449, #27ae60); }
+    .live-prop-fill.no { background: linear-gradient(90deg, #922b21, #e74c3c); }
+    .live-prop-fill.abstain { background: linear-gradient(90deg, #626567, #95a5a6); }
+
+    .live-prop-count {
+      width: 80px;
+      font-size: 0.82rem;
+      color: rgba(255, 255, 255, 0.5);
+      font-weight: 600;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .live-prop-result {
+      text-align: center;
+      margin-top: 20px;
+      padding: 16px;
+      border-radius: 8px;
+      font-size: 1.2rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      opacity: 0;
+      transform: scale(0.8);
+      transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .live-prop-result.visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .live-prop-result.passed {
+      background: rgba(39, 174, 96, 0.12);
+      color: #2ecc71;
+      border: 1px solid rgba(39, 174, 96, 0.3);
+    }
+
+    .live-prop-result.failed {
+      background: rgba(231, 76, 60, 0.12);
+      color: #e74c3c;
+      border: 1px solid rgba(231, 76, 60, 0.3);
+    }
+
+    /* Waiting / between races */
+    .live-waiting {
+      text-align: center;
+      padding: 60px 20px;
+      color: rgba(255, 255, 255, 0.3);
+      font-size: 0.85rem;
+    }
+
+    .live-waiting .next-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--california-gold);
+      margin-bottom: 8px;
+      opacity: 0.6;
+    }
+
+    .live-waiting .next-name {
+      font-size: 1.5rem;
+      color: rgba(255, 255, 255, 0.6);
+      font-weight: 700;
+    }
+
+    /* Progress dots */
+    .live-progress {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 16px;
+    }
+
+    .live-progress .prog-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .live-progress .prog-dot.done {
+      background: var(--california-gold);
+    }
+
+    .live-progress .prog-dot.current {
+      background: var(--california-gold);
+      box-shadow: 0 0 8px rgba(253, 181, 21, 0.5);
+      transform: scale(1.3);
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .header-inner { padding: 16px 20px; }
+      .header-meta { display: none; }
+      .nav-inner { padding: 0 16px; overflow-x: auto; }
+      .nav-tab { padding: 10px 16px; font-size: 0.8rem; white-space: nowrap; }
+      .main { padding: 20px 16px; }
+      .bar-name { width: 120px; }
+      .senate-grid { grid-template-columns: 1fr; }
+      .header-text h1 { font-size: 1.25rem; }
+      .present-btn { padding: 8px 14px; font-size: 0.78rem; margin-left: 12px; }
+      .live-bar-name { width: 120px; font-size: 0.75rem; }
+      .live-race-name { font-size: 1.5rem; }
+      .live-winner-name { font-size: 1.8rem; }
+      .live-stage { padding: 32px 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="header">
+    <div class="header-inner">
+      <!-- LOGO: Replace the placeholder div below with your ASUC logo image -->
+      <img src="images/3LASUC2020.png" alt="ASUC" style="width:64px;height:64px;border-radius:50%;">
+
+      <div class="header-text">
+        <h1><span>ASUC</span> Elections Tabulator</h1>
+        <div class="subtitle">Associated Students of the University of California, Berkeley</div>
+      </div>
+      <button class="present-btn" id="presentBtn" onclick="startPresentation()" style="display:none;">
+        <span class="play-icon">&#9654;</span> Present Live
+      </button>
+      <div class="header-meta">
+        <div class="ballot-count" id="totalBallots">--</div>
+        <div>Total Ballots</div>
+      </div>
+    </div>
+    <nav class="nav">
+      <div class="nav-inner">
+        <div class="nav-tab active" data-section="overview">Overview</div>
+        <div class="nav-tab" data-section="executive">Executive</div>
+        <div class="nav-tab" data-section="senate">Senate</div>
+        <div class="nav-tab" data-section="propositions">Propositions</div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ===== LIVE PRESENTATION OVERLAY ===== -->
+  <div class="live-overlay" id="liveOverlay">
+    <div class="live-topbar">
+      <div class="live-topbar-left">
+        <div class="live-badge"><span class="dot"></span> LIVE</div>
+        <div class="live-title">ASUC Election Results</div>
+      </div>
+      <div class="live-controls">
+        <div class="speed-selector">
+          <label>Speed:</label>
+          <button class="speed-btn" data-speed="0.5" onclick="setSpeed(0.5, this)">0.5x</button>
+          <button class="speed-btn active" data-speed="1" onclick="setSpeed(1, this)">1x</button>
+          <button class="speed-btn" data-speed="2" onclick="setSpeed(2, this)">2x</button>
+          <button class="speed-btn" data-speed="4" onclick="setSpeed(4, this)">4x</button>
+        </div>
+        <button class="live-ctrl-btn" id="pauseBtn" onclick="togglePause()">Pause</button>
+        <button class="live-ctrl-btn" id="skipBtn" onclick="skipToNext()">Skip &#9654;&#9654;</button>
+        <button class="live-ctrl-btn exit" onclick="exitPresentation()">Exit</button>
+      </div>
+    </div>
+    <div class="live-progress" id="liveProgress"></div>
+    <div class="live-stage" id="liveStage"></div>
+  </div>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <main class="main">
+
+    <!-- Loading State -->
+    <div class="loading" id="loading">
+      <div class="spinner"></div>
+      <div>Loading election results...</div>
+    </div>
+
+    <!-- OVERVIEW SECTION -->
+    <div class="section active" id="sec-overview" style="display:none;">
+      <h2 class="section-title">Election Overview</h2>
+      <p class="section-subtitle">Summary of all races tabulated per ASUCBL 4105</p>
+
+      <div class="stats-row" id="statsRow"></div>
+
+      <h2 class="section-title" style="margin-top:12px;">Executive Officers</h2>
+      <p class="section-subtitle">Elected via Instant-Runoff Voting (IRV)</p>
+      <div id="overviewExec"></div>
+
+      <h2 class="section-title" style="margin-top:32px;">Senate</h2>
+      <p class="section-subtitle">20 seats filled via Single Transferable Vote (STV)</p>
+      <div id="overviewSenate"></div>
+
+      <h2 class="section-title" style="margin-top:32px;">Propositions</h2>
+      <p class="section-subtitle">Decided by simple majority of Yes + No votes</p>
+      <div id="overviewProps"></div>
+    </div>
+
+    <!-- EXECUTIVE SECTION -->
+    <div class="section" id="sec-executive">
+      <h2 class="section-title">Executive Races</h2>
+      <p class="section-subtitle">Instant-Runoff Voting &mdash; Candidates eliminated round by round until a majority winner emerges</p>
+      <div id="execCards"></div>
+    </div>
+
+    <!-- SENATE SECTION -->
+    <div class="section" id="sec-senate">
+      <h2 class="section-title">Senate Race</h2>
+      <p class="section-subtitle">Single Transferable Vote &mdash; 20 seats filled with fractional vote transfers</p>
+      <div id="senateContent"></div>
+    </div>
+
+    <!-- PROPOSITIONS SECTION -->
+    <div class="section" id="sec-propositions">
+      <h2 class="section-title">Propositions</h2>
+      <p class="section-subtitle">Simple majority &mdash; passes if Yes &gt; 50% of (Yes + No)</p>
+      <div id="propCards"></div>
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    <p>ASUC Elections Tabulator &middot; Per ASUCBL 4105 Regulations &middot; University of California, Berkeley</p>
+    <p style="margin-top:4px;">For academic and educational use &middot; Data courtesy of ASUC Elections Council</p>
+  </footer>
+
+  <script>
+    // ===== DATA & INIT =====
+    let DATA = null;
+
+    async function init() {
+      try {
+        const resp = await fetch('output/results.json');
+        if (!resp.ok) throw new Error('Failed to load results.json');
+        DATA = await resp.json();
+        document.getElementById('loading').style.display = 'none';
+        document.getElementById('presentBtn').style.display = '';
+        render();
+      } catch (err) {
+        document.getElementById('loading').innerHTML =
+          `<div style="color:#e74c3c;font-weight:600;">Error loading results</div>
+           <div style="margin-top:8px;font-size:0.85rem;">Make sure <code>output/results.json</code> exists.<br>
+           Run <code>python src/tabulator.py</code> first.</div>`;
+      }
+    }
+
+    // ===== NAVIGATION =====
+    document.querySelectorAll('.nav-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+        tab.classList.add('active');
+        document.getElementById('sec-' + tab.dataset.section).classList.add('active');
+      });
+    });
+
+    // ===== RENDER (static view) =====
+    function render() {
+      document.getElementById('totalBallots').textContent = DATA.total_ballots.toLocaleString();
+      document.getElementById('sec-overview').style.display = '';
+      renderOverview();
+      renderExecutive();
+      renderSenate();
+      renderPropositions();
+    }
+
+    function renderOverview() {
+      const exec = DATA.executive_races;
+      const senate = DATA.senate;
+      const props = DATA.propositions;
+      const execCount = Object.keys(exec).length;
+      const senateSeats = senate.elected ? senate.elected.length : 0;
+      const senateRounds = senate.rounds ? senate.rounds.length : 0;
+      const propCount = Object.keys(props).length;
+
+      document.getElementById('statsRow').innerHTML = `
+        <div class="stat-card"><div class="stat-value">${DATA.total_ballots.toLocaleString()}</div><div class="stat-label">Total Ballots</div></div>
+        <div class="stat-card"><div class="stat-value">${execCount}</div><div class="stat-label">Executive Races</div></div>
+        <div class="stat-card"><div class="stat-value">${senateSeats}</div><div class="stat-label">Senate Seats Filled</div></div>
+        <div class="stat-card"><div class="stat-value">${senateRounds}</div><div class="stat-label">Senate Rounds</div></div>
+        <div class="stat-card"><div class="stat-value">${propCount}</div><div class="stat-label">Propositions</div></div>`;
+
+      let execHtml = '<div class="senate-grid">';
+      for (const [raceId, result] of Object.entries(exec)) {
+        if (!result.winner) continue;
+        const w = result.winner;
+        const initials = w.name.split(' ').map(n => n[0]).join('').slice(0, 2);
+        execHtml += `<div class="senator-card"><div class="senator-rank top3">${initials}</div><div class="senator-info"><h4>${w.name}</h4><div class="senator-party">${raceId} &middot; ${w.party}</div></div></div>`;
+      }
+      execHtml += '</div>';
+      document.getElementById('overviewExec').innerHTML = execHtml;
+
+      let senateHtml = '<div class="senate-grid">';
+      if (senate.elected) {
+        senate.elected.forEach((s, i) => {
+          senateHtml += `<div class="senator-card"><div class="senator-rank ${i < 3 ? 'top3' : ''}">${i + 1}</div><div class="senator-info"><h4>${s.name}</h4><div class="senator-party">${s.party}${s.description ? ' &middot; ' + s.description : ''}</div></div></div>`;
+        });
+      }
+      senateHtml += '</div>';
+      document.getElementById('overviewSenate').innerHTML = senateHtml;
+
+      let propsHtml = '';
+      for (const [propId, result] of Object.entries(props)) {
+        const passed = result.result === 'PASSED';
+        propsHtml += `<div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;"><span class="prop-result ${passed ? 'passed' : 'failed'}">${result.result}</span><span style="font-weight:600;color:var(--text-primary);">${result.proposition}</span><span style="color:var(--text-muted);font-size:0.8rem;">(${result.yes_percentage.toFixed(1)}% yes)</span></div>`;
+      }
+      document.getElementById('overviewProps').innerHTML = propsHtml;
+    }
+
+    function renderExecutive() {
+      const container = document.getElementById('execCards');
+      let html = '';
+      for (const [raceId, result] of Object.entries(DATA.executive_races)) {
+        const winner = result.winner;
+        const winnerName = winner ? winner.name : 'N/A';
+        const rounds = result.rounds || [];
+        html += `<div class="card" id="exec-${raceId.replace(/\s/g, '')}"><div class="card-header" onclick="toggleCard(this)"><div><div class="card-race-name">${raceId}</div></div><div style="display:flex;align-items:center;gap:12px;"><div class="card-winner-badge"><span class="check">&#10003;</span> ${winnerName}</div><div class="card-toggle">&#9660;</div></div></div><div class="card-body">`;
+        if (winner) {
+          const initials = winner.name.split(' ').map(n => n[0]).join('').slice(0, 2);
+          html += `<div class="winner-spotlight"><div class="winner-avatar">${initials}</div><div class="winner-info"><h3>${winner.name}</h3><span class="party-tag">${winner.party}</span>${winner.description ? `<div class="description">${winner.description}</div>` : ''}</div></div>`;
+        }
+        html += `<div class="rounds-header">Round-by-Round Breakdown</div>`;
+        rounds.forEach(round => {
+          const sorted = Object.entries(round.standings).sort((a, b) => b[1] - a[1]);
+          const maxVotes = sorted.length > 0 ? sorted[0][1] : 1;
+          const quotaPct = (round.quota / maxVotes) * 100;
+          html += `<div class="round-block"><div class="round-label">Round ${round.round_num}<span class="round-meta">${round.total_active_ballots.toLocaleString()} active ballots &middot; Quota: ${Math.round(round.quota).toLocaleString()}</span>${round.winner ? '<span class="round-badge elected">Winner</span>' : ''}${round.eliminated ? '<span class="round-badge eliminated">Elimination</span>' : ''}</div>`;
+          sorted.forEach(([name, votes]) => {
+            const pct = (votes / maxVotes) * 100;
+            const isWinner = name === round.winner;
+            const isEliminated = round.eliminated && round.eliminated.includes(name);
+            const fillClass = isWinner ? 'winner' : isEliminated ? 'eliminated' : '';
+            const votePct = round.total_active_ballots > 0 ? (votes / round.total_active_ballots * 100).toFixed(1) : '0';
+            html += `<div class="bar-row"><div class="bar-name" title="${name}">${name}</div><div class="bar-track"><div class="bar-fill ${fillClass}" style="width:${pct}%"></div>${round.round_num === 1 || isWinner ? `<div class="quota-line" style="left:${Math.min(quotaPct, 100)}%"></div>` : ''}</div><div class="bar-value">${votes.toLocaleString()} (${votePct}%)</div></div>`;
+          });
+          html += '</div>';
+        });
+        html += '</div></div>';
+      }
+      container.innerHTML = html;
+    }
+
+    function renderSenate() {
+      const container = document.getElementById('senateContent');
+      const senate = DATA.senate;
+      if (!senate) { container.innerHTML = '<p>No senate data.</p>'; return; }
+      let html = `<div class="stats-row" style="margin-bottom:24px;"><div class="stat-card"><div class="stat-value">${senate.total_ballots.toLocaleString()}</div><div class="stat-label">Total Ballots</div></div><div class="stat-card"><div class="stat-value">${senate.rounds ? senate.rounds[0]?.quota || '--' : '--'}</div><div class="stat-label">Droop Quota</div></div><div class="stat-card"><div class="stat-value">${senate.elected ? senate.elected.length : 0} / ${senate.seats}</div><div class="stat-label">Seats Filled</div></div><div class="stat-card"><div class="stat-value">${senate.rounds ? senate.rounds.length : 0}</div><div class="stat-label">Total Rounds</div></div></div>`;
+      html += '<h3 style="font-size:1rem;font-weight:700;color:var(--berkeley-blue);margin-bottom:14px;">Elected Senators</h3><div class="senate-grid">';
+      if (senate.elected) {
+        senate.elected.forEach((s, i) => {
+          html += `<div class="senator-card"><div class="senator-rank ${i < 3 ? 'top3' : ''}">${i + 1}</div><div class="senator-info"><h4>${s.name}</h4><div class="senator-party">${s.party}${s.description ? ' &middot; ' + s.description : ''}</div></div></div>`;
+        });
+      }
+      html += '</div>';
+      html += `<div class="card" style="margin-top:24px;"><div class="card-header" onclick="toggleCard(this)"><div class="card-race-name">Round-by-Round Detail</div><div class="card-toggle">&#9660;</div></div><div class="card-body">`;
+      if (senate.rounds) {
+        senate.rounds.forEach(round => {
+          const elected = round.elected_this_round || [];
+          const eliminated = round.eliminated_this_round || [];
+          const type = round.round_type || 'unknown';
+          const typeLabel = type === 'election' ? 'Election' : type === 'elimination' ? 'Elimination' : 'Final';
+          html += `<div class="round-block"><div class="round-label">Round ${round.round_num}<span class="round-meta">${typeLabel} &middot; Active: ${Math.round(round.total_active_ballots).toLocaleString()} &middot; Quota: ${round.quota}</span>${elected.map(c => `<span class="round-badge elected">${c}</span>`).join(' ')}${eliminated.map(c => `<span class="round-badge eliminated">${c}</span>`).join(' ')}</div>`;
+          const sorted = Object.entries(round.standings).sort((a, b) => b[1] - a[1]);
+          const maxVotes = sorted.length > 0 ? sorted[0][1] : 1;
+          const important = new Set([...elected.map(s => s.toLowerCase()), ...eliminated.map(s => s.toLowerCase())]);
+          const shown = sorted.filter((_, i) => i < 8 || important.has(sorted[i][0].toLowerCase()));
+          shown.forEach(([name, votes]) => {
+            const isElected = elected.includes(name);
+            const isElim = eliminated.includes(name);
+            const pct = (votes / maxVotes) * 100;
+            const fillClass = isElected ? 'winner' : isElim ? 'eliminated' : '';
+            html += `<div class="bar-row"><div class="bar-name" title="${name}">${name}</div><div class="bar-track"><div class="bar-fill ${fillClass}" style="width:${pct}%"></div></div><div class="bar-value">${votes.toFixed(1)}</div></div>`;
+          });
+          if (shown.length < sorted.length) html += `<div style="font-size:0.7rem;color:var(--text-muted);margin-left:188px;margin-top:2px;">+ ${sorted.length - shown.length} more candidates</div>`;
+          html += '</div>';
+        });
+      }
+      html += '</div></div>';
+      container.innerHTML = html;
+    }
+
+    function renderPropositions() {
+      const container = document.getElementById('propCards');
+      let html = '';
+      for (const [propId, result] of Object.entries(DATA.propositions)) {
+        const passed = result.result === 'PASSED';
+        const total = result.yes_votes + result.no_votes + result.abstain_votes;
+        const deciding = result.yes_votes + result.no_votes;
+        const yesPct = deciding > 0 ? (result.yes_votes / deciding * 100) : 0;
+        const noPct = deciding > 0 ? (result.no_votes / deciding * 100) : 0;
+        const yesW = total > 0 ? (result.yes_votes / total * 100) : 0;
+        const noW = total > 0 ? (result.no_votes / total * 100) : 0;
+        const absW = total > 0 ? (result.abstain_votes / total * 100) : 0;
+        html += `<div class="prop-card"><div class="prop-header"><div class="prop-name">${result.proposition}</div><div class="prop-result ${passed ? 'passed' : 'failed'}">${result.result}</div></div><div class="prop-bars"><div class="prop-bar-row"><div class="prop-bar-label">Yes</div><div class="prop-bar-track"><div class="prop-bar-fill yes" style="width:${yesW}%">${yesPct.toFixed(1)}%</div></div><div class="prop-bar-count">${result.yes_votes.toLocaleString()}</div></div><div class="prop-bar-row"><div class="prop-bar-label">No</div><div class="prop-bar-track"><div class="prop-bar-fill no" style="width:${noW}%">${noPct.toFixed(1)}%</div></div><div class="prop-bar-count">${result.no_votes.toLocaleString()}</div></div><div class="prop-bar-row"><div class="prop-bar-label">Abstain</div><div class="prop-bar-track"><div class="prop-bar-fill abstain" style="width:${absW}%"></div></div><div class="prop-bar-count">${result.abstain_votes.toLocaleString()}</div></div></div><div class="prop-threshold">Threshold: &gt;50% of deciding votes (Yes + No = ${deciding.toLocaleString()}) needed to pass</div></div>`;
+      }
+      container.innerHTML = html;
+    }
+
+    function toggleCard(headerEl) {
+      headerEl.closest('.card').classList.toggle('expanded');
+    }
+
+    // =========================================================================
+    // LIVE PRESENTATION ENGINE
+    // =========================================================================
+    let liveSpeed = 1;
+    let livePaused = false;
+    let liveAborted = false;
+    let liveSkipRace = false;
+    let liveResolveWait = null; // to resolve a pending wait on skip/exit
+
+    function delay(ms) {
+      return new Promise(resolve => {
+        const adjusted = ms / liveSpeed;
+        let elapsed = 0;
+        const tick = 50;
+        const interval = setInterval(() => {
+          if (liveAborted) { clearInterval(interval); resolve(); return; }
+          if (liveSkipRace) { clearInterval(interval); resolve(); return; }
+          if (!livePaused) elapsed += tick;
+          if (elapsed >= adjusted) { clearInterval(interval); resolve(); }
+        }, tick);
+        liveResolveWait = () => { clearInterval(interval); resolve(); };
+      });
+    }
+
+    function setSpeed(s, btn) {
+      liveSpeed = s;
+      document.querySelectorAll('.speed-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    }
+
+    function togglePause() {
+      livePaused = !livePaused;
+      document.getElementById('pauseBtn').textContent = livePaused ? 'Resume' : 'Pause';
+      document.getElementById('pauseBtn').classList.toggle('active', livePaused);
+    }
+
+    function skipToNext() {
+      liveSkipRace = true;
+      if (liveResolveWait) liveResolveWait();
+    }
+
+    function exitPresentation() {
+      liveAborted = true;
+      if (liveResolveWait) liveResolveWait();
+      document.getElementById('liveOverlay').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    // Number counting animation
+    function animateCount(el, target, duration) {
+      const start = performance.now();
+      const isFloat = !Number.isInteger(target);
+      const update = () => {
+        const elapsed = performance.now() - start;
+        const progress = Math.min(elapsed / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+        const current = target * eased;
+        el.textContent = isFloat ? current.toFixed(1) : Math.round(current).toLocaleString();
+        if (progress < 1) requestAnimationFrame(update);
+      };
+      requestAnimationFrame(update);
+    }
+
+    // Build progress dots
+    function buildProgress(steps, currentIdx) {
+      const el = document.getElementById('liveProgress');
+      el.innerHTML = steps.map((_, i) =>
+        `<div class="prog-dot ${i < currentIdx ? 'done' : ''} ${i === currentIdx ? 'current' : ''}"></div>`
+      ).join('');
+    }
+
+    // ===== MAIN PRESENTATION FLOW =====
+    async function startPresentation() {
+      liveSpeed = 1;
+      livePaused = false;
+      liveAborted = false;
+      liveSkipRace = false;
+
+      // Reset speed buttons
+      document.querySelectorAll('.speed-btn').forEach(b => {
+        b.classList.toggle('active', b.dataset.speed === '1');
+      });
+      document.getElementById('pauseBtn').textContent = 'Pause';
+      document.getElementById('pauseBtn').classList.remove('active');
+
+      const overlay = document.getElementById('liveOverlay');
+      const stage = document.getElementById('liveStage');
+      overlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+
+      // Build list of presentation steps
+      const steps = [];
+      for (const [raceId, result] of Object.entries(DATA.executive_races)) {
+        steps.push({ type: 'executive', raceId, result });
+      }
+      steps.push({ type: 'senate', result: DATA.senate });
+      for (const [propId, result] of Object.entries(DATA.propositions)) {
+        steps.push({ type: 'proposition', propId, result });
+      }
+
+      for (let i = 0; i < steps.length; i++) {
+        if (liveAborted) break;
+        liveSkipRace = false;
+        buildProgress(steps, i);
+
+        const step = steps[i];
+        if (step.type === 'executive') await presentExecutiveRace(stage, step.raceId, step.result);
+        else if (step.type === 'senate') await presentSenate(stage, step.result);
+        else if (step.type === 'proposition') await presentProposition(stage, step.propId, step.result);
+
+        if (liveAborted) break;
+
+        // Brief pause between races
+        if (i < steps.length - 1) {
+          const next = steps[i + 1];
+          const nextName = next.type === 'executive' ? next.raceId :
+                           next.type === 'senate' ? 'Senate' : next.result.proposition;
+          stage.innerHTML = `<div class="live-waiting"><div class="next-label">Up Next</div><div class="next-name">${nextName}</div></div>`;
+          await delay(2000);
+        }
+      }
+
+      if (!liveAborted) {
+        // Final screen
+        buildProgress(steps, steps.length);
+        stage.innerHTML = `
+          <div style="text-align:center;padding:80px 20px;">
+            <div style="font-size:0.75rem;font-weight:800;text-transform:uppercase;letter-spacing:3px;color:var(--california-gold);margin-bottom:16px;">Tabulation Complete</div>
+            <div style="font-size:2rem;font-weight:800;color:white;">All Results Presented</div>
+            <div style="margin-top:24px;"><button class="live-ctrl-btn" onclick="exitPresentation()" style="font-size:1rem;padding:12px 32px;">Close Presentation</button></div>
+          </div>`;
+      }
+    }
+
+    // ===== PRESENT EXECUTIVE RACE =====
+    async function presentExecutiveRace(stage, raceId, result) {
+      const rounds = result.rounds || [];
+      const winner = result.winner;
+      if (!rounds.length) return;
+
+      // Build all candidates from first round
+      const allCandidates = Object.keys(rounds[0].standings).sort(
+        (a, b) => rounds[0].standings[b] - rounds[0].standings[a]
+      );
+
+      // Race header
+      stage.innerHTML = `
+        <div class="live-race-header" id="lrh">
+          <div class="live-race-type">Instant-Runoff Voting</div>
+          <div class="live-race-name">${raceId}</div>
+          <div class="live-race-info">${result.total_ballots.toLocaleString()} ballots &middot; ${rounds.length} round${rounds.length > 1 ? 's' : ''}</div>
+        </div>
+        <div id="liveRounds"></div>
+        <div id="liveWinnerSlot"></div>`;
+
+      await delay(300);
+      document.getElementById('lrh')?.classList.add('visible');
+      await delay(800);
+      if (liveAborted || liveSkipRace) return;
+
+      const roundsContainer = document.getElementById('liveRounds');
+
+      for (let ri = 0; ri < rounds.length; ri++) {
+        if (liveAborted || liveSkipRace) break;
+        const round = rounds[ri];
+        const sorted = Object.entries(round.standings).sort((a, b) => b[1] - a[1]);
+        const maxVotes = sorted.length > 0 ? sorted[0][1] : 1;
+        const quotaPct = round.quota / (maxVotes * 1.1) * 100; // scale so quota line visible
+
+        const isWinnerRound = !!round.winner;
+        const eventHtml = isWinnerRound
+          ? '<span class="live-round-event winner-event">Winner Declared</span>'
+          : round.eliminated
+            ? '<span class="live-round-event elim-event">Elimination</span>'
+            : '';
+
+        const roundDiv = document.createElement('div');
+        roundDiv.className = 'live-round';
+        roundDiv.innerHTML = `
+          <div class="live-round-label">
+            <span class="live-round-num">Round ${round.round_num}</span>
+            <span class="live-round-info">${round.total_active_ballots.toLocaleString()} active ballots &middot; Quota: ${Math.round(round.quota).toLocaleString()}</span>
+            ${eventHtml}
+          </div>
+          ${sorted.map(([name, votes]) => {
+            const isW = name === round.winner;
+            const isE = round.eliminated && round.eliminated.includes(name);
+            const nameClass = isW ? 'is-winner' : isE ? 'is-eliminated' : '';
+            const fillClass = isW ? 'is-winner' : isE ? 'is-eliminated' : '';
+            const pct = (votes / (maxVotes * 1.1)) * 100;
+            const votePct = round.total_active_ballots > 0 ? (votes / round.total_active_ballots * 100).toFixed(1) : '0';
+            return `
+              <div class="live-bar-row" data-target-pct="${pct}" data-target-votes="${Math.round(votes)}">
+                <div class="live-bar-name ${nameClass}">${name}</div>
+                <div class="live-bar-track">
+                  <div class="live-bar-fill ${fillClass}"></div>
+                  <div class="live-quota-line" style="left:${Math.min((round.quota / (maxVotes * 1.1)) * 100, 98)}%">
+                    <span class="live-quota-label">QUOTA</span>
+                  </div>
+                </div>
+                <div class="live-bar-value"><span class="count-num">0</span> <span style="opacity:0.5">(${votePct}%)</span></div>
+              </div>`;
+          }).join('')}`;
+
+        roundsContainer.appendChild(roundDiv);
+
+        // Scroll into view
+        roundDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+        await delay(200);
+        roundDiv.classList.add('visible');
+        await delay(300);
+        if (liveAborted || liveSkipRace) break;
+
+        // Animate bars one by one
+        const bars = roundDiv.querySelectorAll('.live-bar-row');
+        for (let bi = 0; bi < bars.length; bi++) {
+          if (liveAborted || liveSkipRace) break;
+          const bar = bars[bi];
+          bar.classList.add('visible');
+          const fill = bar.querySelector('.live-bar-fill');
+          const countEl = bar.querySelector('.count-num');
+          const targetPct = parseFloat(bar.dataset.targetPct);
+          const targetVotes = parseInt(bar.dataset.targetVotes);
+
+          // Trigger bar animation
+          requestAnimationFrame(() => {
+            fill.style.width = targetPct + '%';
+          });
+          animateCount(countEl, targetVotes, 800 / liveSpeed);
+          await delay(150);
+        }
+
+        // Wait for bars to finish
+        await delay(800);
+        if (liveAborted || liveSkipRace) break;
+
+        // Pause between rounds
+        if (ri < rounds.length - 1) {
+          await delay(1200);
+        }
+      }
+
+      if (liveAborted || liveSkipRace) return;
+
+      // Winner announcement
+      if (winner) {
+        const winSlot = document.getElementById('liveWinnerSlot');
+        const finalRound = rounds[rounds.length - 1];
+        const finalVotes = finalRound.standings[winner.name] || 0;
+        winSlot.innerHTML = `
+          <div class="live-winner-announce" id="lwa">
+            <div class="live-winner-label">Winner</div>
+            <div class="live-winner-name">${winner.name}</div>
+            <div class="live-winner-party">${winner.party}</div>
+            <div class="live-winner-votes">${Math.round(finalVotes).toLocaleString()} votes in final round</div>
+          </div>`;
+        winSlot.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        await delay(400);
+        document.getElementById('lwa')?.classList.add('visible');
+        await delay(3000);
+      }
+    }
+
+    // ===== PRESENT SENATE =====
+    async function presentSenate(stage, senate) {
+      if (!senate || !senate.elected) return;
+
+      stage.innerHTML = `
+        <div class="live-race-header" id="lrh">
+          <div class="live-race-type">Single Transferable Vote</div>
+          <div class="live-race-name">Senate</div>
+          <div class="live-race-info">${senate.total_ballots.toLocaleString()} ballots &middot; ${senate.seats} seats &middot; Quota: ${senate.rounds?.[0]?.quota || '?'} &middot; ${senate.rounds?.length || 0} rounds</div>
+        </div>
+        <div style="text-align:center;margin-bottom:32px;">
+          <span style="font-size:0.8rem;color:rgba(255,255,255,0.3);">Seats filling as candidates reach quota or win by elimination...</span>
+        </div>
+        <div id="liveSenateGrid" style="text-align:center;"></div>`;
+
+      await delay(300);
+      document.getElementById('lrh')?.classList.add('visible');
+      await delay(800);
+      if (liveAborted || liveSkipRace) return;
+
+      const grid = document.getElementById('liveSenateGrid');
+
+      // Pre-create all seat slots
+      for (let i = 0; i < senate.elected.length; i++) {
+        const s = senate.elected[i];
+        const seat = document.createElement('div');
+        seat.className = 'live-senate-seat';
+        seat.id = `seat-${i}`;
+        seat.innerHTML = `
+          <div class="seat-num">${i + 1}</div>
+          <div>
+            <div class="seat-name">${s.name}</div>
+            <div class="seat-party">${s.party}</div>
+          </div>`;
+        grid.appendChild(seat);
+      }
+
+      // Reveal them one by one
+      for (let i = 0; i < senate.elected.length; i++) {
+        if (liveAborted || liveSkipRace) break;
+        const seat = document.getElementById(`seat-${i}`);
+        seat.classList.add('visible');
+        if (i < 6) seat.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        await delay(400);
+      }
+
+      if (liveAborted || liveSkipRace) return;
+      await delay(2000);
+    }
+
+    // ===== PRESENT PROPOSITION =====
+    async function presentProposition(stage, propId, result) {
+      const passed = result.result === 'PASSED';
+      const total = result.yes_votes + result.no_votes + result.abstain_votes;
+      const deciding = result.yes_votes + result.no_votes;
+      const yesPct = deciding > 0 ? (result.yes_votes / deciding * 100) : 0;
+      const yesW = total > 0 ? (result.yes_votes / total * 100) : 0;
+      const noW = total > 0 ? (result.no_votes / total * 100) : 0;
+      const absW = total > 0 ? (result.abstain_votes / total * 100) : 0;
+
+      stage.innerHTML = `
+        <div class="live-race-header" id="lrh">
+          <div class="live-race-type">Simple Majority Vote</div>
+          <div class="live-race-name">${propId}</div>
+          <div class="live-race-info">${result.proposition}</div>
+        </div>
+        <div class="live-prop-card" id="lpc">
+          <div class="live-prop-name">Counting votes...</div>
+          <div class="live-prop-bar-row">
+            <div class="live-prop-label">Yes</div>
+            <div class="live-prop-track"><div class="live-prop-fill yes" id="lpYes"></div></div>
+            <div class="live-prop-count" id="lpYesCount">0</div>
+          </div>
+          <div class="live-prop-bar-row">
+            <div class="live-prop-label">No</div>
+            <div class="live-prop-track"><div class="live-prop-fill no" id="lpNo"></div></div>
+            <div class="live-prop-count" id="lpNoCount">0</div>
+          </div>
+          <div class="live-prop-bar-row">
+            <div class="live-prop-label">Abstain</div>
+            <div class="live-prop-track"><div class="live-prop-fill abstain" id="lpAbs"></div></div>
+            <div class="live-prop-count" id="lpAbsCount">0</div>
+          </div>
+          <div style="margin-top:12px;font-size:0.72rem;color:rgba(255,255,255,0.25);text-align:center;">Threshold: &gt;50% of Yes + No votes</div>
+          <div class="live-prop-result ${passed ? 'passed' : 'failed'}" id="lpResult">${result.result} &mdash; ${yesPct.toFixed(1)}% Yes</div>
+        </div>`;
+
+      await delay(300);
+      document.getElementById('lrh')?.classList.add('visible');
+      await delay(500);
+      document.getElementById('lpc')?.classList.add('visible');
+      await delay(600);
+      if (liveAborted || liveSkipRace) return;
+
+      // Animate the bars
+      const yesBar = document.getElementById('lpYes');
+      const noBar = document.getElementById('lpNo');
+      const absBar = document.getElementById('lpAbs');
+      if (yesBar) yesBar.style.width = yesW + '%';
+      if (noBar) noBar.style.width = noW + '%';
+      if (absBar) absBar.style.width = absW + '%';
+
+      // Count numbers
+      animateCount(document.getElementById('lpYesCount'), result.yes_votes, 1200 / liveSpeed);
+      animateCount(document.getElementById('lpNoCount'), result.no_votes, 1200 / liveSpeed);
+      animateCount(document.getElementById('lpAbsCount'), result.abstain_votes, 1200 / liveSpeed);
+
+      await delay(1500);
+      if (liveAborted || liveSkipRace) return;
+
+      // Reveal result
+      document.getElementById('lpResult')?.classList.add('visible');
+      await delay(2500);
+    }
+
+    // ===== KEYBOARD SHORTCUTS =====
+    document.addEventListener('keydown', (e) => {
+      if (!document.getElementById('liveOverlay').classList.contains('active')) return;
+      if (e.key === ' ' || e.key === 'Spacebar') { e.preventDefault(); togglePause(); }
+      if (e.key === 'ArrowRight' || e.key === 'n') skipToNext();
+      if (e.key === 'Escape') exitPresentation();
+      if (e.key === '1') setSpeed(0.5, document.querySelector('.speed-btn[data-speed="0.5"]'));
+      if (e.key === '2') setSpeed(1, document.querySelector('.speed-btn[data-speed="1"]'));
+      if (e.key === '3') setSpeed(2, document.querySelector('.speed-btn[data-speed="2"]'));
+      if (e.key === '4') setSpeed(4, document.querySelector('.speed-btn[data-speed="4"]'));
+    });
+
+    // ===== START =====
+    init();
+  </script>
+
+</body>
+</html>

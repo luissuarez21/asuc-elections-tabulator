@@ -1,0 +1,1981 @@
+{
+  "generated_at": "2026-03-05T12:57:39.223945",
+  "total_ballots": 14508,
+  "executive_races": {
+    "President": {
+      "race": "President",
+      "winner": {
+        "name": "Abigail Verino",
+        "party": "ElevateCal",
+        "description": "ASUC Senator, Peer Educator & Community Advocate",
+        "wellness_pact": false
+      },
+      "rounds": [
+        {
+          "round_num": 1,
+          "standings": {
+            "Maitri Halappa": 2015,
+            "Miguel Muniz": 696,
+            "Abigail Verino": 4190,
+            "Owen Knapper, Jr.": 2398,
+            "Ethan Hu": 905
+          },
+          "quota": 5102.5,
+          "total_active_ballots": 10204,
+          "exhausted_this_round": 0,
+          "eliminated": [
+            "Miguel Muniz"
+          ],
+          "winner": null
+        },
+        {
+          "round_num": 2,
+          "standings": {
+            "Maitri Halappa": 2117,
+            "Abigail Verino": 4336,
+            "Owen Knapper, Jr.": 2566,
+            "Ethan Hu": 996
+          },
+          "quota": 5008.0,
+          "total_active_ballots": 10015,
+          "exhausted_this_round": 189,
+          "eliminated": [
+            "Ethan Hu"
+          ],
+          "winner": null
+        },
+        {
+          "round_num": 3,
+          "standings": {
+            "Maitri Halappa": 2308,
+            "Abigail Verino": 4525,
+            "Owen Knapper, Jr.": 2782
+          },
+          "quota": 4808.0,
+          "total_active_ballots": 9615,
+          "exhausted_this_round": 589,
+          "eliminated": [
+            "Maitri Halappa"
+          ],
+          "winner": null
+        },
+        {
+          "round_num": 4,
+          "standings": {
+            "Abigail Verino": 5336,
+            "Owen Knapper, Jr.": 3442
+          },
+          "quota": 4389.5,
+          "total_active_ballots": 8778,
+          "exhausted_this_round": 1426,
+          "eliminated": null,
+          "winner": "Abigail Verino"
+        }
+      ],
+      "total_ballots": 10204,
+      "final_exhausted": 1426
+    },
+    "Executive Vice President": {
+      "race": "Executive Vice President",
+      "winner": {
+        "name": "Isha Chander",
+        "party": "ElevateCal",
+        "description": "Senator, Former President Chief of Staff",
+        "wellness_pact": false
+      },
+      "rounds": [
+        {
+          "round_num": 1,
+          "standings": {
+            "Max Rodman": 2914,
+            "Isha Chander": 5452,
+            "Ethan Hu": 1252
+          },
+          "quota": 4809.5,
+          "total_active_ballots": 9618,
+          "exhausted_this_round": 0,
+          "eliminated": null,
+          "winner": "Isha Chander"
+        }
+      ],
+      "total_ballots": 9618,
+      "final_exhausted": 0
+    },
+    "External Affairs Vice President": {
+      "race": "External Affairs Vice President",
+      "winner": {
+        "name": "Calvin Yang",
+        "party": "Independent",
+        "description": "Zero transit costs for Bay Area transit!",
+        "wellness_pact": false
+      },
+      "rounds": [
+        {
+          "round_num": 1,
+          "standings": {
+            "Katelyn Chacon": 4008,
+            "Calvin Yang": 4265
+          },
+          "quota": 4137.0,
+          "total_active_ballots": 8273,
+          "exhausted_this_round": 0,
+          "eliminated": null,
+          "winner": "Calvin Yang"
+        }
+      ],
+      "total_ballots": 8273,
+      "final_exhausted": 0
+    },
+    "Academic Affairs Vice President": {
+      "race": "Academic Affairs Vice President",
+      "winner": {
+        "name": "Jenny Tran",
+        "party": "Independent",
+        "description": "AAVP Chief of Staff",
+        "wellness_pact": false
+      },
+      "rounds": [
+        {
+          "round_num": 1,
+          "standings": {
+            "Aaron Madrigal": 1612,
+            "Jenny Tran": 6336
+          },
+          "quota": 3974.5,
+          "total_active_ballots": 7948,
+          "exhausted_this_round": 0,
+          "eliminated": null,
+          "winner": "Jenny Tran"
+        }
+      ],
+      "total_ballots": 7948,
+      "final_exhausted": 0
+    },
+    "Student Advocate": {
+      "race": "Student Advocate",
+      "winner": {
+        "name": "Britnee Stephen",
+        "party": "Independent",
+        "description": "",
+        "wellness_pact": false
+      },
+      "rounds": [
+        {
+          "round_num": 1,
+          "standings": {
+            "Britnee Stephen": 6960
+          },
+          "quota": 3480.5,
+          "total_active_ballots": 6960,
+          "exhausted_this_round": 0,
+          "eliminated": null,
+          "winner": "Britnee Stephen"
+        }
+      ],
+      "total_ballots": 6960,
+      "final_exhausted": 0
+    }
+  },
+  "senate": {
+    "race": "Senate",
+    "seats": 20,
+    "elected": [
+      {
+        "name": "Talia Golshani",
+        "party": "Independent",
+        "description": "JSU Endorsed",
+        "wellness_pact": false
+      },
+      {
+        "name": "Abdullah Memon",
+        "party": "Independent",
+        "description": "Divest from War, Invest in Students",
+        "wellness_pact": false
+      },
+      {
+        "name": "Bella Santos",
+        "party": "Independent",
+        "description": "Environmental Community Endorsed",
+        "wellness_pact": false
+      },
+      {
+        "name": "Rayne Xue",
+        "party": "Independent",
+        "description": "International, East Asian, Humanities",
+        "wellness_pact": false
+      },
+      {
+        "name": "Sara Terán",
+        "party": "CalSERVE",
+        "description": "Undocumented and Immigrant, Latinx, QT+",
+        "wellness_pact": false
+      },
+      {
+        "name": "Selina Mendez",
+        "party": "Independent",
+        "description": "",
+        "wellness_pact": false
+      },
+      {
+        "name": "Sydney Scott",
+        "party": "Independent",
+        "description": "Health, Safety & Sustainability",
+        "wellness_pact": false
+      },
+      {
+        "name": "Ayden Reading",
+        "party": "Independent",
+        "description": "LGBTQIA+ & DSP",
+        "wellness_pact": false
+      },
+      {
+        "name": "Anamaria Abnusy",
+        "party": "ElevateCal",
+        "description": "Empower Immigrants & First-Gen Voices!",
+        "wellness_pact": false
+      },
+      {
+        "name": "Nicole Nunez-Rivera",
+        "party": "ElevateCal",
+        "description": "Nicole \"Nikki\" Nunez-Rivera",
+        "wellness_pact": false
+      },
+      {
+        "name": "Shawn Ree",
+        "party": "ElevateCal",
+        "description": "Pilipinx Community Endorsed Senator",
+        "wellness_pact": false
+      },
+      {
+        "name": "Jada Yang",
+        "party": "Independent",
+        "description": "Disabled + East Asian Representation",
+        "wellness_pact": false
+      },
+      {
+        "name": "Colton Beardsley",
+        "party": "Independent",
+        "description": "Housing & Transfer Advocate",
+        "wellness_pact": false
+      },
+      {
+        "name": "Margaret Solomon",
+        "party": "ElevateCal",
+        "description": "",
+        "wellness_pact": false
+      },
+      {
+        "name": "Somer Alrai",
+        "party": "Independent",
+        "description": "MEMSSA Endorsed Candidate",
+        "wellness_pact": false
+      },
+      {
+        "name": "Lucia Stankovic",
+        "party": "Independent",
+        "description": "International Student Assoc. Endorsed",
+        "wellness_pact": false
+      },
+      {
+        "name": "Kianna Beatriz Rodarte",
+        "party": "Independent",
+        "description": "EVP Chief Of Staff Intern, LBSA Executive Admin",
+        "wellness_pact": false
+      },
+      {
+        "name": "Sydnee Thy",
+        "party": "Independent",
+        "description": "#1 Southeast Asian Community Endorsed",
+        "wellness_pact": false
+      },
+      {
+        "name": "Abigail Cho",
+        "party": "Independent",
+        "description": "",
+        "wellness_pact": false
+      },
+      {
+        "name": "Reg Macarro",
+        "party": "ElevateCal",
+        "description": "Indigenous and Environmental Advocate",
+        "wellness_pact": false
+      }
+    ],
+    "rounds": [
+      {
+        "round_num": 1,
+        "round_type": "election",
+        "standings": {
+          "Meera Mahidhara": 72.0,
+          "Lucia Stankovic": 219.0,
+          "Rayne Xue": 431.0,
+          "Kianna Beatriz Rodarte": 269.0,
+          "Kavyun D. Parker": 127.0,
+          "Talia Golshani": 596.0,
+          "Christopher Bailey": 228.0,
+          "Sona Wyse": 211.0,
+          "Reg Macarro": 218.0,
+          "Anamaria Abnusy": 285.0,
+          "Ayden Reading": 295.0,
+          "Colton Beardsley": 182.0,
+          "Sydney Scott": 227.0,
+          "Martin Bertao": 123.0,
+          "Shawn Ree": 296.0,
+          "Abdullah Memon": 592.0,
+          "Abhi Mokkapati": 187.0,
+          "Sumayyah Rose Abuelmaatti": 217.0,
+          "Selina Mendez": 311.0,
+          "Somer Alrai": 272.0,
+          "Rishabh Dave": 48.0,
+          "Sandra Ding": 260.0,
+          "Jeffrey Lee": 84.0,
+          "Faateh Pervez": 162.0,
+          "Sydnee Thy": 239.0,
+          "Urmila Khalder": 78.0,
+          "Kiara Price": 162.0,
+          "Saigeldeep Ghotra": 121.0,
+          "Vikram Ravi": 185.0,
+          "Nicole Nunez-Rivera": 319.0,
+          "Abigail Cho": 282.0,
+          "Jada Yang": 243.0,
+          "Sara Terán": 277.0,
+          "Kayla Castro": 62.0,
+          "Lizbeth Ortiz": 218.0,
+          "Margaret Solomon": 282.0,
+          "Richard M. Zeng": 79.0,
+          "Irving Rodriguez": 77.0,
+          "Bella Santos": 407.0,
+          "Maree Denvers": 53.0,
+          "Liz Martinez": 34.0,
+          "Niyati Ram": 187.0,
+          "Leticia Alvarado-Franco": 75.0,
+          "Joshua Agupugo": 78.0,
+          "Maana Kolagotla": 57.0,
+          "Andy Hu": 23.0,
+          "Olga Klymenko": 62.0,
+          "Steven Ramsingh": 32.0,
+          "Arnav Jamwal": 33.0
+        },
+        "quota": 457,
+        "total_active_ballots": 9577.0,
+        "exhausted_count": 0,
+        "elected_this_round": [
+          "Talia Golshani",
+          "Abdullah Memon"
+        ],
+        "eliminated_this_round": [],
+        "vote_transfers": {
+          "Talia Golshani": 139.0,
+          "Abdullah Memon": 135.0
+        }
+      },
+      {
+        "round_num": 2,
+        "round_type": "elimination",
+        "standings": {
+          "Meera Mahidhara": 72.93288590604027,
+          "Lucia Stankovic": 222.02669825866136,
+          "Rayne Xue": 432.14538363867223,
+          "Kianna Beatriz Rodarte": 273.8821081988028,
+          "Kavyun D. Parker": 128.6221884636314,
+          "Christopher Bailey": 237.1527072374388,
+          "Sona Wyse": 212.15056457464175,
+          "Sydney Scott": 248.4940169825866,
+          "Reg Macarro": 222.8199369671685,
+          "Anamaria Abnusy": 297.1016914565572,
+          "Ayden Reading": 310.869501632505,
+          "Colton Beardsley": 185.90777480500634,
+          "Martin Bertao": 138.843517594776,
+          "Shawn Ree": 297.5962837837838,
+          "Abhi Mokkapati": 192.07525677943045,
+          "Sumayyah Rose Abuelmaatti": 224.34392572102303,
+          "Selina Mendez": 314.65382958461817,
+          "Somer Alrai": 298.2298430981317,
+          "Rishabh Dave": 49.15574551061128,
+          "Sandra Ding": 260.4612620170506,
+          "Bella Santos": 413.44212543079993,
+          "Jeffrey Lee": 86.29594821331399,
+          "Faateh Pervez": 163.37342417921278,
+          "Sydnee Thy": 241.52398875385452,
+          "Urmila Khalder": 79.61700752766188,
+          "Kiara Price": 163.85540994014147,
+          "Saigeldeep Ghotra": 122.15056457464176,
+          "Vikram Ravi": 186.63255033557047,
+          "Nicole Nunez-Rivera": 321.0575458008344,
+          "Abigail Cho": 282.46644295302013,
+          "Jada Yang": 246.8818701251587,
+          "Sara Terán": 280.8922319970978,
+          "Kayla Castro": 62.922524034101215,
+          "Lizbeth Ortiz": 220.05236486486487,
+          "Margaret Solomon": 284.97488889896607,
+          "Richard M. Zeng": 79.46644295302013,
+          "Irving Rodriguez": 78.3786051151823,
+          "Maree Denvers": 53.68412162162162,
+          "Liz Martinez": 34.22804054054054,
+          "Niyati Ram": 188.36824324324326,
+          "Leticia Alvarado-Franco": 75.91216216216216,
+          "Joshua Agupugo": 79.15574551061128,
+          "Maana Kolagotla": 57.6996644295302,
+          "Andy Hu": 23.927704970070742,
+          "Olga Klymenko": 64.7779339742427,
+          "Arnav Jamwal": 35.96970796299655,
+          "Steven Ramsingh": 33.60146471975331
+        },
+        "quota": 457,
+        "total_active_ballots": 8580.773847043352,
+        "exhausted_count": 353,
+        "elected_this_round": [],
+        "eliminated_this_round": [
+          "Andy Hu"
+        ],
+        "vote_transfers": {
+          "Andy Hu": 23.927704970070742
+        }
+      },
+      {
+        "round_num": 3,
+        "round_type": "elimination",
+        "standings": {
+          "Meera Mahidhara": 72.93288590604027,
+          "Lucia Stankovic": 222.02669825866136,
+          "Rayne Xue": 432.14538363867223,
+          "Kianna Beatriz Rodarte": 273.8821081988028,
+          "Kavyun D. Parker": 128.6221884636314,
+          "Christopher Bailey": 237.1527072374388,
+          "Sona Wyse": 212.15056457464175,
+          "Sydney Scott": 248.4940169825866,
+          "Reg Macarro": 222.8199369671685,
+          "Anamaria Abnusy": 297.1016914565572,
+          "Ayden Reading": 312.1027231090151,
+          "Colton Beardsley": 186.90777480500634,
+          "Martin Bertao": 138.843517594776,
+          "Shawn Ree": 297.5962837837838,
+          "Abhi Mokkapati": 194.07525677943045,
+          "Sumayyah Rose Abuelmaatti": 225.34392572102303,
+          "Selina Mendez": 314.65382958461817,
+          "Somer Alrai": 298.2298430981317,
+          "Rishabh Dave": 50.15574551061128,
+          "Sandra Ding": 261.4612620170506,
+          "Bella Santos": 413.44212543079993,
+          "Jeffrey Lee": 87.29594821331399,
+          "Faateh Pervez": 165.37342417921278,
+          "Sydnee Thy": 241.52398875385452,
+          "Urmila Khalder": 79.61700752766188,
+          "Kiara Price": 163.85540994014147,
+          "Saigeldeep Ghotra": 122.15056457464176,
+          "Vikram Ravi": 186.63255033557047,
+          "Nicole Nunez-Rivera": 321.0575458008344,
+          "Abigail Cho": 284.69448349356065,
+          "Jada Yang": 249.8818701251587,
+          "Sara Terán": 280.8922319970978,
+          "Kayla Castro": 62.922524034101215,
+          "Lizbeth Ortiz": 221.05236486486487,
+          "Margaret Solomon": 284.97488889896607,
+          "Richard M. Zeng": 80.46644295302013,
+          "Irving Rodriguez": 78.3786051151823,
+          "Maree Denvers": 53.68412162162162,
+          "Liz Martinez": 34.22804054054054,
+          "Niyati Ram": 188.36824324324326,
+          "Leticia Alvarado-Franco": 75.91216216216216,
+          "Joshua Agupugo": 79.15574551061128,
+          "Maana Kolagotla": 57.6996644295302,
+          "Olga Klymenko": 64.7779339742427,
+          "Arnav Jamwal": 35.96970796299655,
+          "Steven Ramsingh": 33.60146471975331
+        },
+        "quota": 457,
+        "total_active_ballots": 8574.307404090332,
+        "exhausted_count": 361,
+        "elected_this_round": [],
+        "eliminated_this_round": [
+          "Steven Ramsingh"
+        ],
+        "vote_transfers": {
+          "Steven Ramsingh": 33.60146471975331
+        }
+      },
+      {
+        "round_num": 4,
+        "round_type": "elimination",
+        "standings": {
+          "Meera Mahidhara": 72.93288590604027,
+          "Lucia Stankovic": 222.02669825866136,
+          "Rayne Xue": 434.14538363867223,
+          "Kianna Beatriz Rodarte": 273.8821081988028,
+          "Kavyun D. Parker": 128.6221884636314,
+          "Christopher Bailey": 238.1527072374388,
+          "Sona Wyse": 212.15056457464175,
+          "Sydney Scott": 251.72205752312715,
+          "Reg Macarro": 225.8199369671685,
+          "Anamaria Abnusy": 298.1016914565572,
+          "Ayden Reading": 312.1027231090151,
+          "Colton Beardsley": 186.90777480500634,
+          "Martin Bertao": 138.843517594776,
+          "Shawn Ree": 297.5962837837838,
+          "Abhi Mokkapati": 194.07525677943045,
+          "Sumayyah Rose Abuelmaatti": 226.34392572102303,
+          "Selina Mendez": 314.65382958461817,
+          "Somer Alrai": 298.2298430981317,
+          "Rishabh Dave": 50.15574551061128,
+          "Sandra Ding": 261.4612620170506,
+          "Bella Santos": 414.44212543079993,
+          "Jeffrey Lee": 88.29594821331399,
+          "Faateh Pervez": 165.37342417921278,
+          "Sydnee Thy": 242.52398875385452,
+          "Urmila Khalder": 80.61700752766188,
+          "Kiara Price": 163.85540994014147,
+          "Saigeldeep Ghotra": 123.15056457464176,
+          "Vikram Ravi": 188.63255033557047,
+          "Nicole Nunez-Rivera": 321.0575458008344,
+          "Abigail Cho": 284.69448349356065,
+          "Jada Yang": 249.8818701251587,
+          "Sara Terán": 283.8922319970978,
+          "Kayla Castro": 62.922524034101215,
+          "Lizbeth Ortiz": 221.05236486486487,
+          "Margaret Solomon": 285.97488889896607,
+          "Richard M. Zeng": 80.46644295302013,
+          "Irving Rodriguez": 78.3786051151823,
+          "Maree Denvers": 53.68412162162162,
+          "Liz Martinez": 35.22804054054054,
+          "Niyati Ram": 188.36824324324326,
+          "Leticia Alvarado-Franco": 75.91216216216216,
+          "Joshua Agupugo": 80.15574551061128,
+          "Maana Kolagotla": 57.6996644295302,
+          "Olga Klymenko": 65.7779339742427,
+          "Arnav Jamwal": 35.96970796299655
+        },
+        "quota": 457,
+        "total_active_ballots": 8565.933979911119,
+        "exhausted_count": 374,
+        "elected_this_round": [],
+        "eliminated_this_round": [
+          "Liz Martinez"
+        ],
+        "vote_transfers": {
+          "Liz Martinez": 35.22804054054054
+        }
+      },
+      {
+        "round_num": 5,
+        "round_type": "elimination",
+        "standings": {
+          "Meera Mahidhara": 72.93288590604027,
+          "Lucia Stankovic": 223.02669825866136,
+          "Rayne Xue": 434.14538363867223,
+          "Kianna Beatriz Rodarte": 273.8821081988028,
+          "Kavyun D. Parker": 129.6221884636314,
+          "Christopher Bailey": 238.1527072374388,
+          "Sona Wyse": 213.15056457464175,
+          "Sydney Scott": 251.72205752312715,
+          "Reg Macarro": 225.8199369671685,
+          "Anamaria Abnusy": 298.1016914565572,
+          "Ayden Reading": 312.1027231090151,
+          "Colton Beardsley": 186.90777480500634,
+          "Martin Bertao": 138.843517594776,
+          "Shawn Ree": 297.5962837837838,
+          "Abhi Mokkapati": 194.07525677943045,
+          "Sumayyah Rose Abuelmaatti": 226.57196626156357,
+          "Selina Mendez": 315.65382958461817,
+          "Somer Alrai": 299.2298430981317,
+          "Rishabh Dave": 50.15574551061128,
+          "Sandra Ding": 261.4612620170506,
+          "Bella Santos": 415.44212543079993,
+          "Jeffrey Lee": 88.29594821331399,
+          "Faateh Pervez": 165.37342417921278,
+          "Sydnee Thy": 243.52398875385452,
+          "Urmila Khalder": 80.61700752766188,
+          "Kiara Price": 163.85540994014147,
+          "Saigeldeep Ghotra": 124.15056457464176,
+          "Vikram Ravi": 188.63255033557047,
+          "Nicole Nunez-Rivera": 321.0575458008344,
+          "Abigail Cho": 284.69448349356065,
+          "Jada Yang": 253.8818701251587,
+          "Sara Terán": 285.8922319970978,
+          "Kayla Castro": 63.922524034101215,
+          "Lizbeth Ortiz": 224.05236486486487,
+          "Margaret Solomon": 285.97488889896607,
+          "Richard M. Zeng": 80.46644295302013,
+          "Irving Rodriguez": 78.3786051151823,
+          "Maree Denvers": 53.68412162162162,
+          "Niyati Ram": 188.36824324324326,
+          "Leticia Alvarado-Franco": 84.91216216216216,
+          "Joshua Agupugo": 80.15574551061128,
+          "Maana Kolagotla": 57.6996644295302,
+          "Olga Klymenko": 65.7779339742427,
+          "Arnav Jamwal": 35.96970796299655
+        },
+        "quota": 457,
+        "total_active_ballots": 8557.933979911119,
+        "exhausted_count": 382,
+        "elected_this_round": [],
+        "eliminated_this_round": [
+          "Arnav Jamwal"
+        ],
+        "vote_transfers": {
+          "Arnav Jamwal": 35.96970796299655
+        }
+      },
+      {
+        "round_num": 6,
+        "round_type": "elimination",
+        "standings": {
+          "Meera Mahidhara": 72.93288590604027,
+          "Lucia Stankovic": 224.02669825866136,
+          "Rayne Xue": 434.14538363867223,
+          "Kianna Beatriz Rodarte": 274.8821081988028,
+          "Kavyun D. Parker": 129.6221884636314,
+          "Christopher Bailey": 241.1527072374388,
+          "Sona Wyse": 213.15056457464175,
+          "Sydney Scott": 251.72205752312715,
+          "Reg Macarro": 225.8199369671685,
+          "Anamaria Abnusy": 302.0138536187194,
+          "Ayden Reading": 315.0148852711772,
+          "Colton Beardsley": 190.90777480500634,
+          "Martin Bertao": 139.843517594776,
+          "Shawn Ree": 297.5962837837838,
+          "Abhi Mokkapati": 194.07525677943045,
+          "Sumayyah Rose Abuelmaatti": 227.57196626156357,
+          "Selina Mendez": 315.88187012515874,
+          "Somer Alrai": 299.2298430981317,
+          "Rishabh Dave": 51.15574551061128,
+          "Sandra Ding": 261.4612620170506,
+          "Bella Santos": 416.44212543079993,
+          "Jeffrey Lee": 89.29594821331399,
+          "Faateh Pervez": 165.60146471975332,
+          "Sydnee Thy": 243.52398875385452,
+          "Urmila Khalder": 80.85022900417195,
+          "Kiara Price": 164.85540994014147,
+          "Saigeldeep Ghotra": 124.15056457464176,
+          "Vikram Ravi": 190.63255033557047,
+          "Nicole Nunez-Rivera": 321.0575458008344,
+          "Abigail Cho": 284.92252403410123,
+          "Jada Yang": 253.8818701251587,
+          "Sara Terán": 285.8922319970978,
+          "Kayla Castro": 63.922524034101215,
+          "Lizbeth Ortiz": 224.05236486486487,
+          "Margaret Solomon": 286.97488889896607,
+          "Richard M. Zeng": 80.46644295302013,
+          "Irving Rodriguez": 78.3786051151823,
+          "Maree Denvers": 53.68412162162162,
+          "Niyati Ram": 189.59628378378378,
+          "Leticia Alvarado-Franco": 84.91216216216216,
+          "Joshua Agupugo": 81.15574551061128,
+          "Maana Kolagotla": 57.6996644295302,
+          "Olga Klymenko": 65.7779339742427
+        },
+        "quota": 457,
+        "total_active_ballots": 8549.933979911119,
+        "exhausted_count": 390,
+        "elected_this_round": [],
+        "eliminated_this_round": [
+          "Rishabh Dave"
+        ],
+        "vote_transfers": {
+          "Rishabh Dave": 51.15574551061128
+        }
+      },
+      {
+        "round_num": 7,
+        "round_type": "elimination",
+        "standings": {
+          "Meera Mahidhara": 73.16610738255034,
+          "Lucia Stankovic": 224.25991973517142,
+          "Rayne Xue": 435.14538363867223,
+          "Kianna Beatriz Rodarte": 274.8821081988028,
+          "Kavyun D. Parker": 129.6221884636314,
+          "Christopher Bailey": 242.1527072374388,
+          "Sona Wyse": 213.15056457464175,
+          "Sydney Scott": 252.72205752312715,
+          "Reg Macarro": 225.8199369671685,
+          "Anamaria Abnusy": 303.0138536187194,
+          "Ayden Reading": 315.0148852711772,
+          "Colton Beardsley": 192.90777480500634,
+          "Martin Bertao": 141.843517594776,
+          "Shawn Ree": 297.5962837837838,
+          "Abhi Mokkapati": 195.07525677943045,
+          "Sumayyah Rose Abuelmaatti": 227.57196626156357,
+          "Selina Mendez": 315.88187012515874,
+          "Somer Alrai": 299.2298430981317,
+          "Jada Yang": 254.8818701251587,
+          "Sandra Ding": 262.4612620170506,
+          "Bella Santos": 417.44212543079993,
+          "Jeffrey Lee": 89.29594821331399,
+          "Faateh Pervez": 165.60146471975332,
+          "Sydnee Thy": 243.52398875385452,
+          "Urmila Khalder": 80.85022900417195,
+          "Kiara Price": 164.85540994014147,
+          "Saigeldeep Ghotra": 124.15056457464176,
+          "Vikram Ravi": 193.86059087611102,
+          "Nicole Nunez-Rivera": 321.0575458008344,
+          "Abigail Cho": 285.92252403410123,
+          "Sara Terán": 286.8922319970978,
+          "Kayla Castro": 63.922524034101215,
+          "Lizbeth Ortiz": 224.05236486486487,
+          "Margaret Solomon": 288.97488889896607,
+          "Richard M. Zeng": 80.46644295302013,
+          "Irving Rodriguez": 78.3786051151823,
+          "Maree Denvers": 53.68412162162162,
+          "Niyati Ram": 190.59628378378378,
+          "Leticia Alvarado-Franco": 84.91216216216216,
+          "Joshua Agupugo": 81.15574551061128,
+          "Maana Kolagotla": 57.6996644295302,
+          "Olga Klymenko": 66.7779339742427
+        },
+        "quota": 457,
+        "total_active_ballots": 8520.472717894068,
+        "exhausted_count": 421,
+        "elected_this_round": [],
+        "eliminated_this_round": [
+          "Maree Denvers"
+        ],
+        "vote_transfers": {
+          "Maree Denvers": 53.68412162162162
+        }
+      },
+      {
+        "round_num": 8,
+        "round_type": "elimination",
+        "standings": {
+          "Meera Mahidhara": 74.16610738255034,
+          "Lucia Stankovic": 224.25991973517142,
+          "Rayne Xue": 435.14538363867223,
+          "Kianna Beatriz Rodarte": 274.8821081988028,
+          "Kavyun D. Parker": 129.6221884636314,
+          "Christopher Bailey": 243.1527072374388,
+          "Sona Wyse": 215.15056457464175,
+          "Sydney Scott": 252.72205752312715,
+          "Reg Macarro": 226.8199369671685,
+          "Anamaria Abnusy": 305.0138536187194,
+          "Ayden Reading": 320.0148852711772,
+          "Colton Beardsley": 195.90777480500634,
+          "Martin Bertao": 141.843517594776,
+          "Shawn Ree": 299.5962837837838,
+          "Abhi Mokkapati": 196.07525677943045,
+          "Sumayyah Rose Abuelmaatti": 228.57196626156357,
+          "Selina Mendez": 315.88187012515874,
+          "Somer Alrai": 300.2298430981317,
+          "Jada Yang": 254.8818701251587,
+          "Sandra Ding": 262.4612620170506,
+          "Bella Santos": 420.44212543079993,
+          "Jeffrey Lee": 90.29594821331399,
+          "Faateh Pervez": 165.60146471975332,
+          "Sydnee Thy": 243.52398875385452,
+          "Urmila Khalder": 80.85022900417195,
+          "Kiara Price": 164.85540994014147,
+          "Saigeldeep Ghotra": 124.15056457464176,
+          "Vikram Ravi": 193.86059087611102,
+          "Nicole Nunez-Rivera": 321.0575458008344,
+          "Abigail Cho": 285.92252403410123,
+          "Sara Terán": 294.1202725376383,
+          "Kayla Castro": 65.92252403410122,
+          "Lizbeth Ortiz": 226.05236486486487,
+          "Margaret Solomon": 288.97488889896607,
+          "Richard M. Zeng": 80.46644295302013,
+          "Irving Rodriguez": 78.3786051151823,
+          "Niyati Ram": 190.59628378378378,
+          "Leticia Alvarado-Franco": 84.91216216216216,
+          "Joshua Agupugo": 81.15574551061128,
+          "Maana Kolagotla": 57.6996644295302,
+          "Olga Klymenko": 68.7779339742427
+        },
+        "quota": 457,
+        "total_active_ballots": 8504.016636812987,
+        "exhausted_count": 439,
+        "elected_this_round": [],
+        "eliminated_this_round": [
+          "Maana Kolagotla"
+        ],
+        "vote_transfers": {
+          "Maana Kolagotla": 57.6996644295302
+        }
+      },
+      {
+        "round_num": 9,
+        "round_type": "elimination",
+        "standings": {
+          "Meera Mahidhara": 78.16610738255034,
+          "Lucia Stankovic": 225.4931412116815,
+          "Rayne Xue": 436.14538363867223,
+          "Kianna Beatriz Rodarte": 275.8821081988028,
+          "Kavyun D. Parker": 129.6221884636314,
+          "Christopher Bailey": 244.1527072374388,
+          "Sona Wyse": 216.15056457464175,
+          "Sydney Scott": 252.72205752312715,
+          "Reg Macarro": 226.8199369671685,
+          "Anamaria Abnusy": 306.0138536187194,
+          "Ayden Reading": 321.0148852711772,
+          "Colton Beardsley": 196.90777480500634,
+          "Martin Bertao": 143.843517594776,
+          "Shawn Ree": 299.5962837837838,
+          "Abhi Mokkapati": 199.07525677943045,
+          "Sumayyah Rose Abuelmaatti": 230.57196626156357,
+          "Selina Mendez": 316.88187012515874,
+          "Somer Alrai": 300.2298430981317,
+          "Jada Yang": 255.8818701251587,
+          "Sandra Ding": 262.4612620170506,
+          "Bella Santos": 423.44212543079993,
+          "Jeffrey Lee": 90.29594821331399,
+          "Faateh Pervez": 165.60146471975332,
+          "Sydnee Thy": 243.52398875385452,
+          "Urmila Khalder": 81.85022900417195,
+          "Kiara Price": 165.85540994014147,
+          "Saigeldeep Ghotra": 124.15056457464176,
+          "Vikram Ravi": 194.86059087611102,
+          "Nicole Nunez-Rivera": 321.0575458008344,
+          "Abigail Cho": 286.92252403410123,
+          "Sara Terán": 295.1202725376383,
+          "Kayla Castro": 65.92252403410122,
+          "Lizbeth Ortiz": 226.05236486486487,
+          "Margaret Solomon": 289.97488889896607,
+          "Richard M. Zeng": 81.46644295302013,
+          "Irving Rodriguez": 79.3786051151823,
+          "Niyati Ram": 194.59628378378378,
+          "Leticia Alvarado-Franco": 84.91216216216216,
+          "Joshua Agupugo": 81.15574551061128,
+          "Olga Klymenko": 68.7779339742427
+        },
+        "quota": 457,
+        "total_active_ballots": 8482.550193859968,
+        "exhausted_count": 462,
+        "elected_this_round": [],
+        "eliminated_this_round": [
+          "Kayla Castro"
+        ],
+        "vote_transfers": {
+          "Kayla Castro": 65.92252403410122
+        }
+      },
+      {
+        "round_num": 10,
+        "round_type": "elimination",
+        "standings": {
+          "Meera Mahidhara": 79.16610738255034,
+          "Lucia Stankovic": 226.4931412116815,
+          "Rayne Xue": 437.14538363867223,
+          "Kianna Beatriz Rodarte": 277.8821081988028,
+          "Kavyun D. Parker": 129.6221884636314,
+          "Christopher Bailey": 244.1527072374388,
+          "Sona Wyse": 217.15056457464175,
+          "Sydney Scott": 255.72205752312715,
+          "Reg Macarro": 228.8199369671685,
+          "Anamaria Abnusy": 312.0138536187194,
+          "Ayden Reading": 322.0148852711772,
+          "Colton Beardsley": 199.90777480500634,
+          "Martin Bertao": 144.843517594776,
+          "Shawn Ree": 302.5962837837838,
+          "Abhi Mokkapati": 200.07525677943045,
+          "Sumayyah Rose Abuelmaatti": 231.80000680210412,
+          "Selina Mendez": 318.88187012515874,
+          "Somer Alrai": 302.2298430981317,
+          "Jada Yang": 256.88187012515874,
+          "Sandra Ding": 262.4612620170506,
+          "Bella Santos": 425.44212543079993,
+          "Jeffrey Lee": 92.29594821331399,
+          "Faateh Pervez": 165.60146471975332,
+          "Sydnee Thy": 243.52398875385452,
+          "Urmila Khalder": 81.85022900417195,
+          "Kiara Price": 165.85540994014147,
+          "Saigeldeep Ghotra": 124.15056457464176,
+          "Vikram Ravi": 196.86059087611102,
+          "Nicole Nunez-Rivera": 322.0575458008344,
+          "Abigail Cho": 287.92252403410123,
+          "Sara Terán": 302.3483130781789,
+          "Lizbeth Ortiz": 226.05236486486487,
+          "Margaret Solomon": 289.97488889896607,
+          "Richard M. Zeng": 81.46644295302013,
+          "Irving Rodriguez": 79.3786051151823,
+          "Niyati Ram": 194.59628378378378,
+          "Leticia Alvarado-Franco": 88.91216216216216,
+          "Joshua Agupugo": 83.15574551061128,
+          "Olga Klymenko": 71.7779339742427
+        },
+        "quota": 457,
+        "total_active_ballots": 8473.083750906948,
+        "exhausted_count": 473,
+        "elected_this_round": [],
+        "eliminated_this_round": [
+          "Olga Klymenko"
+        ],
+        "vote_transfers": {
+          "Olga Klymenko": 71.7779339742427
+        }
+      },
+      {
+        "round_num": 11,
+        "round_type": "elimination",
+        "standings": {
+          "Meera Mahidhara": 79.3993288590604,
+          "Lucia Stankovic": 227.4931412116815,
+          "Rayne Xue": 439.14538363867223,
+          "Kianna Beatriz Rodarte": 279.8821081988028,
+          "Kavyun D. Parker": 131.6221884636314,
+          "Christopher Bailey": 246.1527072374388,
+          "Sona Wyse": 220.15056457464175,
+          "Sydney Scott": 256.72205752312715,
+          "Reg Macarro": 228.8199369671685,
+          "Anamaria Abnusy": 312.0138536187194,
+          "Ayden Reading": 325.0148852711772,
+          "Colton Beardsley": 199.90777480500634,
+          "Martin Bertao": 146.77122256484674,
+          "Shawn Ree": 302.5962837837838,
+          "Abhi Mokkapati": 200.07525677943045,
+          "Sumayyah Rose Abuelmaatti": 231.80000680210412,
+          "Selina Mendez": 318.88187012515874,
+          "Somer Alrai": 304.2298430981317,
+          "Jada Yang": 261.5815345546889,
+          "Sandra Ding": 263.4612620170506,
+          "Bella Santos": 426.67016597134045,
+          "Jeffrey Lee": 93.29594821331399,
+          "Faateh Pervez": 165.60146471975332,
+          "Sydnee Thy": 244.52398875385452,
+          "Urmila Khalder": 83.85022900417195,
+          "Kiara Price": 165.85540994014147,
+          "Saigeldeep Ghotra": 126.15056457464176,
+          "Vikram Ravi": 196.86059087611102,
+          "Nicole Nunez-Rivera": 322.0575458008344,
+          "Abigail Cho": 287.92252403410123,
+          "Sara Terán": 303.8043941592599,
+          "Lizbeth Ortiz": 226.05236486486487,
+          "Margaret Solomon": 290.97488889896607,
+          "Richard M. Zeng": 82.46644295302013,
+          "Irving Rodriguez": 80.3786051151823,
+          "Niyati Ram": 197.59628378378378,
+          "Leticia Alvarado-Franco": 90.91216216216216,
+          "Joshua Agupugo": 83.15574551061128
+        },
+        "quota": 457,
+        "total_active_ballots": 8443.850529430438,
+        "exhausted_count": 503,
+        "elected_this_round": [],
+        "eliminated_this_round": [
+          "Meera Mahidhara"
+        ],
+        "vote_transfers": {
+          "Meera Mahidhara": 79.3993288590604
+        }
+      },
+      {
+        "round_num": 12,
+        "round_type": "elimination",
+        "standings": {
+          "Lucia Stankovic": 239.4931412116815,
+          "Rayne Xue": 439.14538363867223,
+          "Kianna Beatriz Rodarte": 280.8821081988028,
+          "Kavyun D. Parker": 131.6221884636314,
+          "Christopher Bailey": 247.1527072374388,
+          "Sona Wyse": 224.15056457464175,
+          "Sydney Scott": 258.95527899963724,
+          "Reg Macarro": 230.8199369671685,
+          "Anamaria Abnusy": 313.0138536187194,
+          "Ayden Reading": 326.2481067476873,
+          "Colton Beardsley": 199.90777480500634,
+          "Martin Bertao": 147.0044440413568,
+          "Shawn Ree": 305.5962837837838,
+          "Abhi Mokkapati": 204.07525677943045,
+          "Sumayyah Rose Abuelmaatti": 232.80000680210412,
+          "Selina Mendez": 320.88187012515874,
+          "Somer Alrai": 304.2298430981317,
+          "Jada Yang": 262.5815345546889,
+          "Sandra Ding": 263.4612620170506,
+          "Bella Santos": 428.67016597134045,
+          "Jeffrey Lee": 95.52916968982406,
+          "Faateh Pervez": 166.60146471975332,
+          "Sydnee Thy": 245.52398875385452,
+          "Urmila Khalder": 84.85022900417195,
+          "Kiara Price": 166.85540994014147,
+          "Saigeldeep Ghotra": 126.15056457464176,
+          "Vikram Ravi": 198.86059087611102,
+          "Nicole Nunez-Rivera": 322.0575458008344,
+          "Abigail Cho": 288.92252403410123,
+          "Sara Terán": 304.8043941592599,
+          "Lizbeth Ortiz": 226.05236486486487,
+          "Margaret Solomon": 290.97488889896607,
+          "Richard M. Zeng": 83.46644295302013,
+          "Irving Rodriguez": 82.3786051151823,
+          "Niyati Ram": 200.59628378378378,
+          "Leticia Alvarado-Franco": 90.91216216216216,
+          "Joshua Agupugo": 84.15574551061128
+        },
+        "quota": 457,
+        "total_active_ballots": 8419.384086477417,
+        "exhausted_count": 529,
+        "elected_this_round": [],
+        "eliminated_this_round": [
+          "Irving Rodriguez"
+        ],
+        "vote_transfers": {
+          "Irving Rodriguez": 82.3786051151823
+        }
+      },
+      {
+        "round_num": 13,
+        "round_type": "elimination",
+        "standings": {
+          "Lucia Stankovic": 239.72636268819156,
+          "Rayne Xue": 439.14538363867223,
+          "Kianna Beatriz Rodarte": 282.8821081988028,
+          "Kavyun D. Parker": 134.6221884636314,
+          "Christopher Bailey": 251.1527072374388,
+          "Sona Wyse": 224.15056457464175,
+          "Sydney Scott": 261.95527899963724,
+          "Reg Macarro": 231.8199369671685,
+          "Anamaria Abnusy": 314.0138536187194,
+          "Ayden Reading": 327.2481067476873,
+          "Colton Beardsley": 201.90777480500634,
+          "Martin Bertao": 147.0044440413568,
+          "Shawn Ree": 305.5962837837838,
+          "Abhi Mokkapati": 205.07525677943045,
+          "Sumayyah Rose Abuelmaatti": 234.80000680210412,
+          "Selina Mendez": 324.88187012515874,
+          "Somer Alrai": 305.2298430981317,
+          "Jada Yang": 269.80957509522943,
+          "Sandra Ding": 263.4612620170506,
+          "Bella Santos": 429.67016597134045,
+          "Jeffrey Lee": 96.75721023036459,
+          "Faateh Pervez": 166.60146471975332,
+          "Sydnee Thy": 245.75202929439507,
+          "Urmila Khalder": 85.85022900417195,
+          "Kiara Price": 166.85540994014147,
+          "Saigeldeep Ghotra": 126.15056457464176,
+          "Vikram Ravi": 206.86059087611102,
+          "Nicole Nunez-Rivera": 324.0575458008344,
+          "Abigail Cho": 288.92252403410123,
+          "Sara Terán": 305.8043941592599,
+          "Lizbeth Ortiz": 226.05236486486487,
+          "Margaret Solomon": 292.97488889896607,
+          "Richard M. Zeng": 83.46644295302013,
+          "Niyati Ram": 200.59628378378378,
+          "Leticia Alvarado-Franco": 93.91216216216216,
+          "Joshua Agupugo": 85.15574551061128
+        },
+        "quota": 457,
+        "total_active_ballots": 8389.922824460366,
+        "exhausted_count": 560,
+        "elected_this_round": [],
+        "eliminated_this_round": [
+          "Richard M. Zeng"
+        ],
+        "vote_transfers": {
+          "Richard M. Zeng": 83.46644295302013
+        }
+      },
+      {
+        "round_num": 14,
+        "round_type": "elimination",
+        "standings": {
+          "Lucia Stankovic": 240.72636268819156,
+          "Rayne Xue": 441.14538363867223,
+          "Kianna Beatriz Rodarte": 282.8821081988028,
+          "Kavyun D. Parker": 150.6221884636314,
+          "Christopher Bailey": 252.1527072374388,
+          "Sona Wyse": 224.15056457464175,
+          "Sydney Scott": 262.95527899963724,
+          "Reg Macarro": 233.8199369671685,
+          "Anamaria Abnusy": 316.0138536187194,
+          "Ayden Reading": 332.48132822419734,
+          "Colton Beardsley": 201.90777480500634,
+          "Martin Bertao": 148.0044440413568,
+          "Shawn Ree": 306.5962837837838,
+          "Abhi Mokkapati": 207.07525677943045,
+          "Sumayyah Rose Abuelmaatti": 234.80000680210412,
+          "Selina Mendez": 325.88187012515874,
+          "Somer Alrai": 308.2298430981317,
+          "Jada Yang": 273.80957509522943,
+          "Sandra Ding": 265.4612620170506,
+          "Bella Santos": 431.67016597134045,
+          "Jeffrey Lee": 110.75721023036459,
+          "Faateh Pervez": 166.60146471975332,
+          "Sydnee Thy": 246.75202929439507,
+          "Urmila Khalder": 85.85022900417195,
+          "Kiara Price": 166.85540994014147,
+          "Saigeldeep Ghotra": 126.15056457464176,
+          "Vikram Ravi": 206.86059087611102,
+          "Nicole Nunez-Rivera": 325.0575458008344,
+          "Abigail Cho": 288.92252403410123,
+          "Sara Terán": 307.8043941592599,
+          "Lizbeth Ortiz": 227.05236486486487,
+          "Margaret Solomon": 292.97488889896607,
+          "Niyati Ram": 200.59628378378378,
+          "Leticia Alvarado-Franco": 93.91216216216216,
+          "Joshua Agupugo": 85.15574551061128
+        },
+        "quota": 457,
+        "total_active_ballots": 8371.689602983857,
+        "exhausted_count": 579,
+        "elected_this_round": [],
+        "eliminated_this_round": [
+          "Joshua Agupugo"
+        ],
+        "vote_transfers": {
+          "Joshua Agupugo": 85.15574551061128
+        }
+      },
+      {
+        "round_num": 15,
+        "round_type": "elimination",
+        "standings": {
+          "Lucia Stankovic": 240.72636268819156,
+          "Rayne Xue": 442.14538363867223,
+          "Kianna Beatriz Rodarte": 286.8821081988028,
+          "Kavyun D. Parker": 157.6221884636314,
+          "Christopher Bailey": 254.1527072374388,
+          "Sona Wyse": 226.15056457464175,
+          "Sydney Scott": 263.95527899963724,
+          "Reg Macarro": 236.04797750770905,
+          "Anamaria Abnusy": 318.0138536187194,
+          "Ayden Reading": 332.71454970070744,
+          "Colton Beardsley": 204.90777480500634,
+          "Martin Bertao": 148.23766551786687,
+          "Shawn Ree": 306.5962837837838,
+          "Abhi Mokkapati": 209.07525677943045,
+          "Sumayyah Rose Abuelmaatti": 234.80000680210412,
+          "Selina Mendez": 325.88187012515874,
+          "Somer Alrai": 310.2298430981317,
+          "Jada Yang": 273.80957509522943,
+          "Sandra Ding": 265.4612620170506,
+          "Bella Santos": 432.67016597134045,
+          "Jeffrey Lee": 114.98525077090514,
+          "Faateh Pervez": 166.60146471975332,
+          "Sydnee Thy": 247.75202929439507,
+          "Urmila Khalder": 85.85022900417195,
+          "Kiara Price": 166.85540994014147,
+          "Saigeldeep Ghotra": 127.15056457464176,
+          "Vikram Ravi": 208.86059087611102,
+          "Nicole Nunez-Rivera": 325.0575458008344,
+          "Abigail Cho": 289.92252403410123,
+          "Sara Terán": 310.8043941592599,
+          "Lizbeth Ortiz": 230.05236486486487,
+          "Margaret Solomon": 296.97488889896607,
+          "Niyati Ram": 202.59628378378378,
+          "Leticia Alvarado-Franco": 97.91216216216216
+        },
+        "quota": 457,
+        "total_active_ballots": 8341.456381507347,
+        "exhausted_count": 610,
+        "elected_this_round": [],
+        "eliminated_this_round": [
+          "Urmila Khalder"
+        ],
+        "vote_transfers": {
+          "Urmila Khalder": 85.85022900417195
+        }
+      },
+      {
+        "round_num": 16,
+        "round_type": "elimination",
+        "standings": {
+          "Lucia Stankovic": 243.72636268819156,
+          "Rayne Xue": 442.14538363867223,
+          "Kianna Beatriz Rodarte": 286.8821081988028,
+          "Kavyun D. Parker": 157.6221884636314,
+          "Christopher Bailey": 254.1527072374388,
+          "Sona Wyse": 227.15056457464175,
+          "Sydney Scott": 273.1885004761473,
+          "Reg Macarro": 236.04797750770905,
+          "Anamaria Abnusy": 324.0138536187194,
+          "Ayden Reading": 334.71454970070744,
+          "Colton Beardsley": 205.90777480500634,
+          "Martin Bertao": 149.23766551786687,
+          "Shawn Ree": 306.5962837837838,
+          "Abhi Mokkapati": 211.07525677943045,
+          "Sumayyah Rose Abuelmaatti": 237.02804734264467,
+          "Selina Mendez": 327.88187012515874,
+          "Somer Alrai": 311.45788363867223,
+          "Jada Yang": 274.80957509522943,
+          "Sandra Ding": 266.4612620170506,
+          "Bella Santos": 434.67016597134045,
+          "Jeffrey Lee": 115.98525077090514,
+          "Faateh Pervez": 168.60146471975332,
+          "Sydnee Thy": 253.75202929439507,
+          "Kiara Price": 166.85540994014147,
+          "Saigeldeep Ghotra": 127.3786051151823,
+          "Vikram Ravi": 211.0938123526211,
+          "Nicole Nunez-Rivera": 325.0575458008344,
+          "Abigail Cho": 289.92252403410123,
+          "Sara Terán": 313.8043941592599,
+          "Lizbeth Ortiz": 230.05236486486487,
+          "Margaret Solomon": 297.97488889896607,
+          "Niyati Ram": 206.59628378378378,
+          "Leticia Alvarado-Franco": 97.91216216216216
+        },
+        "quota": 457,
+        "total_active_ballots": 8309.756717077817,
+        "exhausted_count": 644,
+        "elected_this_round": [],
+        "eliminated_this_round": [
+          "Leticia Alvarado-Franco"
+        ],
+        "vote_transfers": {
+          "Leticia Alvarado-Franco": 97.91216216216216
+        }
+      },
+      {
+        "round_num": 17,
+        "round_type": "elimination",
+        "standings": {
+          "Lucia Stankovic": 244.72636268819156,
+          "Rayne Xue": 445.14538363867223,
+          "Kianna Beatriz Rodarte": 286.8821081988028,
+          "Kavyun D. Parker": 160.85022900417195,
+          "Christopher Bailey": 257.1527072374388,
+          "Sona Wyse": 228.15056457464175,
+          "Sydney Scott": 274.1885004761473,
+          "Reg Macarro": 239.2760180482496,
+          "Anamaria Abnusy": 329.0138536187194,
+          "Ayden Reading": 335.94259024124796,
+          "Colton Beardsley": 207.90777480500634,
+          "Martin Bertao": 149.23766551786687,
+          "Shawn Ree": 307.5962837837838,
+          "Abhi Mokkapati": 211.07525677943045,
+          "Sumayyah Rose Abuelmaatti": 239.02804734264467,
+          "Selina Mendez": 331.88187012515874,
+          "Somer Alrai": 312.45788363867223,
+          "Jada Yang": 279.80957509522943,
+          "Sandra Ding": 267.4612620170506,
+          "Bella Santos": 437.67016597134045,
+          "Jeffrey Lee": 118.98525077090514,
+          "Faateh Pervez": 168.60146471975332,
+          "Sydnee Thy": 254.75202929439507,
+          "Kiara Price": 168.85540994014147,
+          "Saigeldeep Ghotra": 127.3786051151823,
+          "Vikram Ravi": 212.0938123526211,
+          "Nicole Nunez-Rivera": 331.0575458008344,
+          "Abigail Cho": 290.92252403410123,
+          "Sara Terán": 326.8043941592599,
+          "Lizbeth Ortiz": 237.05236486486487,
+          "Margaret Solomon": 298.97488889896607,
+          "Niyati Ram": 206.82432432432432
+        },
+        "quota": 457,
+        "total_active_ballots": 8287.756717077817,
+        "exhausted_count": 666,
+        "elected_this_round": [],
+        "eliminated_this_round": [
+          "Jeffrey Lee"
+        ],
+        "vote_transfers": {
+          "Jeffrey Lee": 118.98525077090514
+        }
+      },
+      {
+        "round_num": 18,
+        "round_type": "elimination",
+        "standings": {
+          "Lucia Stankovic": 245.72636268819156,
+          "Rayne Xue": 445.14538363867223,
+          "Kianna Beatriz Rodarte": 288.8821081988028,
+          "Kavyun D. Parker": 177.0782695447125,
+          "Christopher Bailey": 259.6139692544894,
+          "Sona Wyse": 228.15056457464175,
+          "Sydney Scott": 275.1885004761473,
+          "Reg Macarro": 242.2760180482496,
+          "Anamaria Abnusy": 333.0138536187194,
+          "Ayden Reading": 344.94259024124796,
+          "Colton Beardsley": 209.90777480500634,
+          "Martin Bertao": 150.23766551786687,
+          "Shawn Ree": 312.5962837837838,
+          "Abhi Mokkapati": 218.07525677943045,
+          "Sumayyah Rose Abuelmaatti": 242.02804734264467,
+          "Selina Mendez": 331.88187012515874,
+          "Somer Alrai": 313.45788363867223,
+          "Jada Yang": 286.26565617631053,
+          "Sandra Ding": 268.4612620170506,
+          "Bella Santos": 438.898206511881,
+          "Faateh Pervez": 168.60146471975332,
+          "Sydnee Thy": 255.98006983493562,
+          "Kiara Price": 168.85540994014147,
+          "Saigeldeep Ghotra": 127.3786051151823,
+          "Vikram Ravi": 212.3218528931616,
+          "Nicole Nunez-Rivera": 331.0575458008344,
+          "Abigail Cho": 291.92252403410123,
+          "Sara Terán": 336.27083711228005,
+          "Lizbeth Ortiz": 238.05236486486487,
+          "Margaret Solomon": 302.97488889896607,
+          "Niyati Ram": 208.82432432432432
+        },
+        "quota": 457,
+        "total_active_ballots": 8254.067414520225,
+        "exhausted_count": 702,
+        "elected_this_round": [],
+        "eliminated_this_round": [
+          "Saigeldeep Ghotra"
+        ],
+        "vote_transfers": {
+          "Saigeldeep Ghotra": 127.3786051151823
+        }
+      },
+      {
+        "round_num": 19,
+        "round_type": "elimination",
+        "standings": {
+          "Lucia Stankovic": 246.72636268819156,
+          "Rayne Xue": 445.14538363867223,
+          "Kianna Beatriz Rodarte": 289.8821081988028,
+          "Kavyun D. Parker": 179.0782695447125,
+          "Christopher Bailey": 260.6139692544894,
+          "Sona Wyse": 229.15056457464175,
+          "Sydney Scott": 277.1885004761473,
+          "Reg Macarro": 245.2760180482496,
+          "Anamaria Abnusy": 333.2418941592599,
+          "Ayden Reading": 344.94259024124796,
+          "Colton Beardsley": 234.90777480500634,
+          "Martin Bertao": 150.23766551786687,
+          "Shawn Ree": 347.5962837837838,
+          "Abhi Mokkapati": 220.07525677943045,
+          "Sumayyah Rose Abuelmaatti": 246.2560878831852,
+          "Selina Mendez": 332.88187012515874,
+          "Somer Alrai": 316.45788363867223,
+          "Jada Yang": 289.4936967168511,
+          "Sandra Ding": 268.4612620170506,
+          "Bella Santos": 440.898206511881,
+          "Faateh Pervez": 168.60146471975332,
+          "Sydnee Thy": 256.9800698349356,
+          "Kiara Price": 168.85540994014147,
+          "Vikram Ravi": 213.3218528931616,
+          "Nicole Nunez-Rivera": 333.0575458008344,
+          "Abigail Cho": 291.92252403410123,
+          "Sara Terán": 340.27083711228005,
+          "Lizbeth Ortiz": 240.05236486486487,
+          "Margaret Solomon": 302.97488889896607,
+          "Niyati Ram": 209.82432432432432
+        },
+        "quota": 457,
+        "total_active_ballots": 8224.372931026664,
+        "exhausted_count": 734,
+        "elected_this_round": [],
+        "eliminated_this_round": [
+          "Martin Bertao"
+        ],
+        "vote_transfers": {
+          "Martin Bertao": 150.23766551786687
+        }
+      },
+      {
+        "round_num": 20,
+        "round_type": "elimination",
+        "standings": {
+          "Lucia Stankovic": 248.95958416470162,
+          "Rayne Xue": 445.14538363867223,
+          "Kianna Beatriz Rodarte": 290.1153296753129,
+          "Kavyun D. Parker": 183.0782695447125,
+          "Christopher Bailey": 264.84719073099944,
+          "Sona Wyse": 233.38378605115182,
+          "Sydney Scott": 282.8210508117178,
+          "Reg Macarro": 247.2760180482496,
+          "Anamaria Abnusy": 335.2418941592599,
+          "Ayden Reading": 348.6422546707782,
+          "Colton Beardsley": 241.37421775802648,
+          "Shawn Ree": 348.5962837837838,
+          "Abhi Mokkapati": 224.07525677943045,
+          "Sumayyah Rose Abuelmaatti": 249.48930935969526,
+          "Selina Mendez": 332.88187012515874,
+          "Somer Alrai": 316.45788363867223,
+          "Jada Yang": 290.4936967168511,
+          "Sandra Ding": 269.4612620170506,
+          "Bella Santos": 443.13142798839107,
+          "Faateh Pervez": 170.60146471975332,
+          "Sydnee Thy": 259.4413318519862,
+          "Kiara Price": 170.3218528931616,
+          "Vikram Ravi": 219.0163363867223,
+          "Nicole Nunez-Rivera": 333.0575458008344,
+          "Abigail Cho": 294.92252403410123,
+          "Sara Terán": 341.50405858879014,
+          "Lizbeth Ortiz": 240.05236486486487,
+          "Margaret Solomon": 304.4413318519862,
+          "Niyati Ram": 211.82432432432432
+        },
+        "quota": 457,
+        "total_active_ballots": 8140.655104979141,
+        "exhausted_count": 853,
+        "elected_this_round": [],
+        "eliminated_this_round": [
+          "Kiara Price"
+        ],
+        "vote_transfers": {
+          "Kiara Price": 170.3218528931616
+        }
+      },
+      {
+        "round_num": 21,
+        "round_type": "elimination",
+        "standings": {
+          "Lucia Stankovic": 278.1876247052422,
+          "Rayne Xue": 446.14538363867223,
+          "Kianna Beatriz Rodarte": 299.34855115182296,
+          "Kavyun D. Parker": 185.0782695447125,
+          "Christopher Bailey": 269.08041220750954,
+          "Sona Wyse": 234.61700752766188,
+          "Sydney Scott": 292.2874937647379,
+          "Reg Macarro": 253.2760180482496,
+          "Anamaria Abnusy": 344.2418941592599,
+          "Ayden Reading": 358.6422546707782,
+          "Colton Beardsley": 244.37421775802648,
+          "Shawn Ree": 349.5962837837838,
+          "Abhi Mokkapati": 226.07525677943045,
+          "Sumayyah Rose Abuelmaatti": 250.48930935969526,
+          "Selina Mendez": 334.88187012515874,
+          "Somer Alrai": 318.45788363867223,
+          "Jada Yang": 294.4936967168511,
+          "Sandra Ding": 270.4612620170506,
+          "Bella Santos": 452.13142798839107,
+          "Faateh Pervez": 170.60146471975332,
+          "Sydnee Thy": 262.4413318519862,
+          "Vikram Ravi": 219.0163363867223,
+          "Nicole Nunez-Rivera": 334.0575458008344,
+          "Abigail Cho": 294.92252403410123,
+          "Sara Terán": 344.50405858879014,
+          "Lizbeth Ortiz": 243.05236486486487,
+          "Margaret Solomon": 317.4413318519862,
+          "Niyati Ram": 215.82432432432432
+        },
+        "quota": 457,
+        "total_active_ballots": 8103.727400009069,
+        "exhausted_count": 893,
+        "elected_this_round": [],
+        "eliminated_this_round": [
+          "Faateh Pervez"
+        ],
+        "vote_transfers": {
+          "Faateh Pervez": 170.60146471975332
+        }
+      },
+      {
+        "round_num": 22,
+        "round_type": "elimination",
+        "standings": {
+          "Lucia Stankovic": 285.1876247052422,
+          "Rayne Xue": 449.14538363867223,
+          "Kianna Beatriz Rodarte": 300.34855115182296,
+          "Kavyun D. Parker": 186.0782695447125,
+          "Christopher Bailey": 270.08041220750954,
+          "Sona Wyse": 238.61700752766188,
+          "Sydney Scott": 292.2874937647379,
+          "Reg Macarro": 256.27601804824957,
+          "Anamaria Abnusy": 346.2418941592599,
+          "Ayden Reading": 361.6422546707782,
+          "Colton Beardsley": 247.37421775802648,
+          "Shawn Ree": 349.5962837837838,
+          "Abhi Mokkapati": 237.30329731997097,
+          "Sumayyah Rose Abuelmaatti": 255.7173499002358,
+          "Selina Mendez": 334.88187012515874,
+          "Somer Alrai": 323.9139647197533,
+          "Jada Yang": 294.4936967168511,
+          "Sandra Ding": 270.4612620170506,
+          "Bella Santos": 452.13142798839107,
+          "Sydnee Thy": 263.4413318519862,
+          "Vikram Ravi": 228.0163363867223,
+          "Nicole Nunez-Rivera": 334.0575458008344,
+          "Abigail Cho": 294.92252403410123,
+          "Sara Terán": 345.50405858879014,
+          "Lizbeth Ortiz": 243.05236486486487,
+          "Margaret Solomon": 320.4413318519862,
+          "Niyati Ram": 222.82432432432432
+        },
+        "quota": 457,
+        "total_active_ballots": 8004.038097451478,
+        "exhausted_count": 995,
+        "elected_this_round": [],
+        "eliminated_this_round": [
+          "Kavyun D. Parker"
+        ],
+        "vote_transfers": {
+          "Kavyun D. Parker": 186.0782695447125
+        }
+      },
+      {
+        "round_num": 23,
+        "round_type": "elimination",
+        "standings": {
+          "Lucia Stankovic": 290.1876247052422,
+          "Rayne Xue": 450.37342417921275,
+          "Kianna Beatriz Rodarte": 301.34855115182296,
+          "Sara Terán": 391.50405858879014,
+          "Christopher Bailey": 278.08041220750954,
+          "Margaret Solomon": 332.4413318519862,
+          "Sona Wyse": 238.61700752766188,
+          "Sydney Scott": 294.52071524124796,
+          "Reg Macarro": 261.27601804824957,
+          "Anamaria Abnusy": 348.4699346998005,
+          "Ayden Reading": 368.6422546707782,
+          "Colton Beardsley": 255.37421775802648,
+          "Shawn Ree": 351.5962837837838,
+          "Abhi Mokkapati": 241.30329731997097,
+          "Sumayyah Rose Abuelmaatti": 257.71734990023583,
+          "Selina Mendez": 337.88187012515874,
+          "Somer Alrai": 324.14200526029384,
+          "Jada Yang": 303.4936967168511,
+          "Sandra Ding": 272.4612620170506,
+          "Bella Santos": 454.13142798839107,
+          "Sydnee Thy": 265.4413318519862,
+          "Vikram Ravi": 231.0163363867223,
+          "Nicole Nunez-Rivera": 335.0575458008344,
+          "Abigail Cho": 294.92252403410123,
+          "Lizbeth Ortiz": 246.05236486486487,
+          "Niyati Ram": 224.82432432432432
+        },
+        "quota": 457,
+        "total_active_ballots": 7950.877171004898,
+        "exhausted_count": 1052,
+        "elected_this_round": [],
+        "eliminated_this_round": [
+          "Niyati Ram"
+        ],
+        "vote_transfers": {
+          "Niyati Ram": 224.82432432432432
+        }
+      },
+      {
+        "round_num": 24,
+        "round_type": "election",
+        "standings": {
+          "Lucia Stankovic": 295.1876247052422,
+          "Rayne Xue": 452.6014647197533,
+          "Kianna Beatriz Rodarte": 301.34855115182296,
+          "Sara Terán": 410.73209912933066,
+          "Christopher Bailey": 284.08041220750954,
+          "Margaret Solomon": 333.4413318519862,
+          "Sona Wyse": 242.61700752766188,
+          "Sydney Scott": 303.7487557817885,
+          "Reg Macarro": 291.50405858879014,
+          "Anamaria Abnusy": 353.4699346998005,
+          "Ayden Reading": 373.8702952113187,
+          "Colton Beardsley": 261.3742177580265,
+          "Shawn Ree": 354.5962837837838,
+          "Abhi Mokkapati": 262.30329731997097,
+          "Sumayyah Rose Abuelmaatti": 259.71734990023583,
+          "Selina Mendez": 338.88187012515874,
+          "Somer Alrai": 327.14200526029384,
+          "Jada Yang": 306.4936967168511,
+          "Sandra Ding": 275.4612620170506,
+          "Bella Santos": 462.35946852893164,
+          "Sydnee Thy": 272.4413318519862,
+          "Vikram Ravi": 244.0163363867223,
+          "Nicole Nunez-Rivera": 340.0575458008344,
+          "Abigail Cho": 295.92252403410123,
+          "Lizbeth Ortiz": 247.05236486486487
+        },
+        "quota": 457,
+        "total_active_ballots": 7890.421089923816,
+        "exhausted_count": 1114,
+        "elected_this_round": [
+          "Bella Santos"
+        ],
+        "eliminated_this_round": [],
+        "vote_transfers": {
+          "Bella Santos": 5.359468528931616
+        }
+      },
+      {
+        "round_num": 25,
+        "round_type": "elimination",
+        "standings": {
+          "Lucia Stankovic": 295.3026422595653,
+          "Rayne Xue": 452.65942253065293,
+          "Kianna Beatriz Rodarte": 301.64639035491973,
+          "Sara Terán": 411.07984599472854,
+          "Christopher Bailey": 284.2247976458791,
+          "Margaret Solomon": 333.4876981007059,
+          "Sona Wyse": 242.70974002510133,
+          "Sydney Scott": 303.99752533491886,
+          "Reg Macarro": 292.001477584768,
+          "Anamaria Abnusy": 353.6803280976682,
+          "Ayden Reading": 374.33666109976247,
+          "Colton Beardsley": 261.5828658772652,
+          "Shawn Ree": 354.8307583734876,
+          "Abhi Mokkapati": 262.3960298174104,
+          "Sumayyah Rose Abuelmaatti": 259.83861226938694,
+          "Selina Mendez": 338.9050532495186,
+          "Somer Alrai": 327.20260641729874,
+          "Jada Yang": 306.72552796044965,
+          "Sandra Ding": 275.53081139013017,
+          "Sydnee Thy": 272.58043059814537,
+          "Vikram Ravi": 244.05381447450873,
+          "Nicole Nunez-Rivera": 340.0923204873742,
+          "Abigail Cho": 295.94570715846106,
+          "Lizbeth Ortiz": 247.12191423794442
+        },
+        "quota": 457,
+        "total_active_ballots": 7431.932981340052,
+        "exhausted_count": 1247,
+        "elected_this_round": [],
+        "eliminated_this_round": [
+          "Sona Wyse"
+        ],
+        "vote_transfers": {
+          "Sona Wyse": 242.70974002510133
+        }
+      },
+      {
+        "round_num": 26,
+        "round_type": "elimination",
+        "standings": {
+          "Lucia Stankovic": 298.3026422595653,
+          "Rayne Xue": 456.65942253065293,
+          "Kianna Beatriz Rodarte": 303.64639035491973,
+          "Sara Terán": 420.07984599472854,
+          "Christopher Bailey": 286.23638920805905,
+          "Margaret Solomon": 335.4876981007059,
+          "Sydney Scott": 352.24874899981927,
+          "Reg Macarro": 298.246290623458,
+          "Anamaria Abnusy": 357.6803280976682,
+          "Ayden Reading": 378.33666109976247,
+          "Colton Beardsley": 268.5828658772652,
+          "Shawn Ree": 355.8307583734876,
+          "Abhi Mokkapati": 266.3960298174104,
+          "Sumayyah Rose Abuelmaatti": 262.83861226938694,
+          "Selina Mendez": 340.9050532495186,
+          "Somer Alrai": 332.2141979794786,
+          "Jada Yang": 311.73711952262954,
+          "Sandra Ding": 279.53081139013017,
+          "Sydnee Thy": 279.8136520746554,
+          "Vikram Ravi": 248.2870359510188,
+          "Nicole Nunez-Rivera": 346.0923204873742,
+          "Abigail Cho": 297.94570715846106,
+          "Lizbeth Ortiz": 247.12191423794442
+        },
+        "quota": 457,
+        "total_active_ballots": 7324.2204956581,
+        "exhausted_count": 1359,
+        "elected_this_round": [],
+        "eliminated_this_round": [
+          "Lizbeth Ortiz"
+        ],
+        "vote_transfers": {
+          "Lizbeth Ortiz": 247.12191423794442
+        }
+      },
+      {
+        "round_num": 27,
+        "round_type": "election",
+        "standings": {
+          "Lucia Stankovic": 300.3026422595653,
+          "Rayne Xue": 457.65942253065293,
+          "Kianna Beatriz Rodarte": 311.64639035491973,
+          "Sara Terán": 436.09143755690843,
+          "Christopher Bailey": 287.23638920805905,
+          "Margaret Solomon": 346.4876981007059,
+          "Sydney Scott": 354.4767895403598,
+          "Reg Macarro": 299.246290623458,
+          "Anamaria Abnusy": 364.6803280976682,
+          "Ayden Reading": 380.3482526619424,
+          "Colton Beardsley": 269.5828658772652,
+          "Shawn Ree": 362.2868394545686,
+          "Abhi Mokkapati": 268.40762137959035,
+          "Sumayyah Rose Abuelmaatti": 264.83861226938694,
+          "Selina Mendez": 427.9050532495186,
+          "Somer Alrai": 335.2141979794786,
+          "Jada Yang": 316.19320060371064,
+          "Sandra Ding": 281.53081139013017,
+          "Sydnee Thy": 280.82524363683535,
+          "Vikram Ravi": 249.2870359510188,
+          "Nicole Nunez-Rivera": 377.1039120495541,
+          "Abigail Cho": 301.94570715846106
+        },
+        "quota": 457,
+        "total_active_ballots": 7273.296741933758,
+        "exhausted_count": 1414,
+        "elected_this_round": [
+          "Rayne Xue"
+        ],
+        "eliminated_this_round": [],
+        "vote_transfers": {
+          "Rayne Xue": 0.6594225306529509
+        }
+      },
+      {
+        "round_num": 28,
+        "round_type": "elimination",
+        "standings": {
+          "Lucia Stankovic": 300.30696483546905,
+          "Kianna Beatriz Rodarte": 311.6507129308235,
+          "Sara Terán": 436.09897042426326,
+          "Christopher Bailey": 287.23784676849607,
+          "Margaret Solomon": 346.4920206766097,
+          "Sydney Scott": 354.48399383353274,
+          "Sandra Ding": 281.8290691274895,
+          "Reg Macarro": 299.25061319936174,
+          "Anamaria Abnusy": 364.68753239084117,
+          "Ayden Reading": 380.3558022310997,
+          "Colton Beardsley": 269.58718845316895,
+          "Shawn Ree": 362.288937461567,
+          "Abhi Mokkapati": 268.4133848141287,
+          "Sumayyah Rose Abuelmaatti": 264.8450328522891,
+          "Selina Mendez": 427.90793496678776,
+          "Somer Alrai": 335.21709639855027,
+          "Jada Yang": 316.2393080800174,
+          "Sydnee Thy": 280.82812535410454,
+          "Vikram Ravi": 249.2870359510188,
+          "Nicole Nunez-Rivera": 377.10823462545784,
+          "Abigail Cho": 301.94570715846106
+        },
+        "quota": 457,
+        "total_active_ballots": 6816.061512533538,
+        "exhausted_count": 1580,
+        "elected_this_round": [],
+        "eliminated_this_round": [
+          "Vikram Ravi"
+        ],
+        "vote_transfers": {
+          "Vikram Ravi": 249.2870359510188
+        }
+      },
+      {
+        "round_num": 29,
+        "round_type": "elimination",
+        "standings": {
+          "Lucia Stankovic": 303.30696483546905,
+          "Kianna Beatriz Rodarte": 314.8839344073335,
+          "Sara Terán": 441.3270109648038,
+          "Christopher Bailey": 290.23784676849607,
+          "Margaret Solomon": 347.4920206766097,
+          "Sydney Scott": 381.9620283487328,
+          "Sandra Ding": 284.8290691274895,
+          "Reg Macarro": 301.25061319936174,
+          "Anamaria Abnusy": 368.1539753438613,
+          "Ayden Reading": 382.3558022310997,
+          "Colton Beardsley": 279.5987800153489,
+          "Shawn Ree": 363.288937461567,
+          "Abhi Mokkapati": 293.6466062906387,
+          "Sumayyah Rose Abuelmaatti": 267.8450328522891,
+          "Selina Mendez": 427.90793496678776,
+          "Somer Alrai": 336.21709639855027,
+          "Jada Yang": 326.2393080800174,
+          "Sydnee Thy": 291.82812535410454,
+          "Nicole Nunez-Rivera": 377.10823462545784,
+          "Abigail Cho": 304.4069691755117
+        },
+        "quota": 457,
+        "total_active_ballots": 6683.88629112353,
+        "exhausted_count": 1718,
+        "elected_this_round": [],
+        "eliminated_this_round": [
+          "Sumayyah Rose Abuelmaatti"
+        ],
+        "vote_transfers": {
+          "Sumayyah Rose Abuelmaatti": 267.8450328522891
+        }
+      },
+      {
+        "round_num": 30,
+        "round_type": "elimination",
+        "standings": {
+          "Lucia Stankovic": 312.53533395019144,
+          "Kianna Beatriz Rodarte": 316.8839344073335,
+          "Sara Terán": 451.78453290451944,
+          "Christopher Bailey": 297.249438330676,
+          "Margaret Solomon": 353.73165277933015,
+          "Sydney Scott": 392.4208128310605,
+          "Sandra Ding": 286.8290691274895,
+          "Reg Macarro": 308.94509669292245,
+          "Anamaria Abnusy": 380.38345674303645,
+          "Ayden Reading": 390.84024737251013,
+          "Colton Beardsley": 313.53289561163,
+          "Shawn Ree": 374.74501854264804,
+          "Abhi Mokkapati": 294.6466062906387,
+          "Somer Alrai": 345.9038613662771,
+          "Selina Mendez": 436.90793496678776,
+          "Jada Yang": 336.46734862055797,
+          "Sydnee Thy": 305.0845299549744,
+          "Nicole Nunez-Rivera": 382.3362751659984,
+          "Abigail Cho": 306.6350097160522
+        },
+        "quota": 457,
+        "total_active_ballots": 6587.863055374634,
+        "exhausted_count": 1830,
+        "elected_this_round": [],
+        "eliminated_this_round": [
+          "Sandra Ding"
+        ],
+        "vote_transfers": {
+          "Sandra Ding": 286.8290691274895
+        }
+      },
+      {
+        "round_num": 31,
+        "round_type": "elimination",
+        "standings": {
+          "Lucia Stankovic": 314.5526889469097,
+          "Kianna Beatriz Rodarte": 317.8839344073335,
+          "Sara Terán": 456.80044704260314,
+          "Christopher Bailey": 301.249438330676,
+          "Margaret Solomon": 354.7330936379647,
+          "Sydney Scott": 398.4265762655989,
+          "Reg Macarro": 310.1783181694325,
+          "Anamaria Abnusy": 385.3863384603056,
+          "Ayden Reading": 398.8474516656831,
+          "Colton Beardsley": 318.54736889107915,
+          "Shawn Ree": 377.74645940128266,
+          "Jada Yang": 362.4918432173459,
+          "Abhi Mokkapati": 301.64804714927334,
+          "Somer Alrai": 345.91545292845706,
+          "Selina Mendez": 440.90793496678776,
+          "Sydnee Thy": 315.097562375789,
+          "Nicole Nunez-Rivera": 384.3362751659984,
+          "Abigail Cho": 307.6378914333214
+        },
+        "quota": 457,
+        "total_active_ballots": 6392.387122455842,
+        "exhausted_count": 2191,
+        "elected_this_round": [],
+        "eliminated_this_round": [
+          "Christopher Bailey"
+        ],
+        "vote_transfers": {
+          "Christopher Bailey": 301.249438330676
+        }
+      },
+      {
+        "round_num": 32,
+        "round_type": "election",
+        "standings": {
+          "Lucia Stankovic": 322.78072948745023,
+          "Kianna Beatriz Rodarte": 339.13515807223393,
+          "Sara Terán": 461.48721201033,
+          "Sydney Scott": 418.1237031052648,
+          "Colton Beardsley": 360.570552015439,
+          "Margaret Solomon": 356.19953659098485,
+          "Reg Macarro": 318.55815297485566,
+          "Anamaria Abnusy": 396.0988241422566,
+          "Ayden Reading": 414.87207564867754,
+          "Shawn Ree": 381.74645940128266,
+          "Jada Yang": 372.73147532006635,
+          "Abhi Mokkapati": 308.64804714927334,
+          "Somer Alrai": 350.1435101708,
+          "Selina Mendez": 442.6036481505893,
+          "Sydnee Thy": 322.10915393796887,
+          "Nicole Nunez-Rivera": 388.3362751659984,
+          "Abigail Cho": 309.6378914333214
+        },
+        "quota": 457,
+        "total_active_ballots": 6263.782404776793,
+        "exhausted_count": 2337,
+        "elected_this_round": [
+          "Sara Terán"
+        ],
+        "eliminated_this_round": [],
+        "vote_transfers": {
+          "Sara Terán": 4.487212010329983
+        }
+      },
+      {
+        "round_num": 33,
+        "round_type": "elimination",
+        "standings": {
+          "Lucia Stankovic": 322.90947737054546,
+          "Kianna Beatriz Rodarte": 339.2033343879595,
+          "Sydney Scott": 418.2351484186342,
+          "Colton Beardsley": 360.6971952845166,
+          "Margaret Solomon": 356.3184343826209,
+          "Reg Macarro": 319.1299133350864,
+          "Anamaria Abnusy": 396.45599637347703,
+          "Ayden Reading": 415.3424907981049,
+          "Shawn Ree": 381.875356359618,
+          "Jada Yang": 372.9112344833979,
+          "Abhi Mokkapati": 308.73555750068056,
+          "Somer Alrai": 350.2572823214889,
+          "Selina Mendez": 442.77866885340376,
+          "Sydnee Thy": 322.179434867712,
+          "Nicole Nunez-Rivera": 388.6085295925987,
+          "Abigail Cho": 309.64761480569996
+        },
+        "quota": 457,
+        "total_active_ballots": 5805.285669135545,
+        "exhausted_count": 2508,
+        "elected_this_round": [],
+        "eliminated_this_round": [
+          "Abhi Mokkapati"
+        ],
+        "vote_transfers": {
+          "Abhi Mokkapati": 308.73555750068056
+        }
+      },
+      {
+        "round_num": 34,
+        "round_type": "final_election",
+        "standings": {
+          "Lucia Stankovic": 345.930792305104,
+          "Kianna Beatriz Rodarte": 343.4365558644696,
+          "Sydney Scott": 428.2351484186342,
+          "Colton Beardsley": 369.6971952845166,
+          "Margaret Solomon": 362.3213160998901,
+          "Reg Macarro": 328.1415048972664,
+          "Anamaria Abnusy": 406.68403691401755,
+          "Ayden Reading": 424.798571879186,
+          "Shawn Ree": 383.875356359618,
+          "Jada Yang": 378.9325494179564,
+          "Somer Alrai": 361.2572823214889,
+          "Selina Mendez": 444.77866885340376,
+          "Sydnee Thy": 329.18087572634664,
+          "Nicole Nunez-Rivera": 392.8365701331392,
+          "Abigail Cho": 328.9198621953646
+        },
+        "quota": 457,
+        "total_active_ballots": 5629.026286670402,
+        "exhausted_count": 2701,
+        "elected_this_round": [
+          "Lucia Stankovic",
+          "Kianna Beatriz Rodarte",
+          "Sydney Scott",
+          "Colton Beardsley",
+          "Margaret Solomon",
+          "Reg Macarro",
+          "Anamaria Abnusy",
+          "Ayden Reading",
+          "Shawn Ree",
+          "Jada Yang",
+          "Somer Alrai",
+          "Selina Mendez",
+          "Sydnee Thy",
+          "Nicole Nunez-Rivera",
+          "Abigail Cho"
+        ],
+        "eliminated_this_round": [],
+        "vote_transfers": {}
+      }
+    ],
+    "total_ballots": 9577,
+    "final_exhausted": 9577
+  },
+  "propositions": {
+    "Proposition 25A": {
+      "proposition": "Proposition 25A: The Big C(ommunity) Fund 2.0.2",
+      "yes_votes": 2845,
+      "no_votes": 1952,
+      "abstain_votes": 9711,
+      "total_turnout": 14508,
+      "deciding_votes": 4797,
+      "yes_percentage": 59.3079007713154,
+      "result": "PASSED"
+    },
+    "Proposition 25B": {
+      "proposition": "Proposition 25B: BayPass.2",
+      "yes_votes": 5034,
+      "no_votes": 760,
+      "abstain_votes": 8714,
+      "total_turnout": 14508,
+      "deciding_votes": 5794,
+      "yes_percentage": 86.88298239558164,
+      "result": "PASSED"
+    },
+    "Proposition 25C": {
+      "proposition": "Proposition 25C: The Green Initiative Fund (TGIF) Renewal .1",
+      "yes_votes": 3734,
+      "no_votes": 1254,
+      "abstain_votes": 9520,
+      "total_turnout": 14508,
+      "deciding_votes": 4988,
+      "yes_percentage": 74.85966319165999,
+      "result": "PASSED"
+    },
+    "Proposition 25D": {
+      "proposition": "Proposition 25D: The GA Fee 2.0.1",
+      "yes_votes": 708,
+      "no_votes": 291,
+      "abstain_votes": 13509,
+      "total_turnout": 14508,
+      "deciding_votes": 999,
+      "yes_percentage": 70.87087087087087,
+      "result": "PASSED"
+    }
+  }
+}
